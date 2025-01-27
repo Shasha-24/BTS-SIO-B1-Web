@@ -1,5 +1,5 @@
 header {
-    background-color: #D2B48C; /* Light brown color */
+    background-color: #D2B48C; 
     text-align: center;
     padding: 20px;
 }
@@ -9,7 +9,7 @@ header h1 {
 }
 
 button {
-    background-color: #D2B48C; /* Light brown color */
+    background-color: #D2B48C; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -18,7 +18,7 @@ button {
 }
 
 button:hover {
-    background-color: #A0522D; /* Darker brown color */
+    background-color: #A0522D; 
 }
 
 button .container {
