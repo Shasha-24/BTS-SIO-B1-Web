@@ -1,99 +1,360 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Première Page</title>
-    <link rel="stylesheet" href="Style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Bienvenue dans le TP3 Web</h1>
+      <h1>Bienvenue dans le TP3 Web</h1>
     </header>
     <button onclick="window.location.href='index.html'">Accueil</button>
 
     <h2>Exercice 1 :</h2>
-    
+
     <section>
-        <h2>Balise : &lt;h1&gt;</h2>
-        <p><strong>Rôle :</strong> La balise <code>&lt;h1&gt;</code> est utilisée pour définir un titre principal sur la page. Elle est généralement utilisée pour les en-têtes importants.</p>
-        <p><strong>Exemple :</strong></p>
-        <pre><code>&lt;h1&gt;Mon Titre Principal&lt;/h1&gt;</code></pre>
-        <p><strong>Aperçu visuel :</strong></p>
-        <p><h1>Mon Titre Principal</h1></p>
+      <h2>1. Balise <code>&lt;h1&gt; à &lt;h6&gt;</code></h2>
+      <p>
+        Les balises d'en-têtes permettent de structurer un document avec des
+        titres hiérarchisés.
+      </p>
+      <div class="example">
+        Exemple : <code>&lt;h1&gt;Titre principal&lt;/h1&gt;</code> donne :
+        <h1>Titre principal</h1>
+      </div>
     </section>
 
     <section>
-        <h2>Balise : &lt;p&gt;</h2>
-        <p><strong>Rôle :</strong> La balise <code>&lt;p&gt;</code> est utilisée pour définir un paragraphe de texte.</p>
-        <p><strong>Exemple :</strong></p>
-        <pre><code>&lt;p&gt;Ceci est un paragraphe de texte&lt;/p&gt;</code></pre>
-        <p><strong>Aperçu visuel :</strong></p>
-        <p>Ceci est un paragraphe de texte.</p>
+      <h2>2. Balise <code>&lt;p&gt;</code></h2>
+      <p>
+        La balise <code>&lt;p&gt;</code> permet de créer un paragraphe de texte.
+      </p>
+      <div class="example">
+        Exemple : <code>&lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;</code> donne
+        :
+        <p>Ceci est un paragraphe.</p>
+      </div>
     </section>
 
     <section>
-        <h2>Balise : &lt;strong&gt;</h2>
-        <p><strong>Rôle :</strong> La balise <code>&lt;strong&gt;</code> est utilisée pour marquer un texte comme important, ce qui le rend souvent en gras.</p>
-        <p><strong>Exemple :</strong></p>
-        <pre><code>&lt;strong&gt;Texte en gras&lt;/strong&gt;</code></pre>
-        <p><strong>Aperçu visuel :</strong></p>
-        <p><strong>Texte en gras</strong></p>
+      <h2>3. Balise <code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code></h2>
+      <p>Ces balises permettent de mettre en valeur un texte :</p>
+      <ul>
+        <li>
+          <code>&lt;strong&gt;</code> : met le texte en gras pour indiquer une
+          importance.
+        </li>
+        <li>
+          <code>&lt;em&gt;</code> : met le texte en italique pour insister.
+        </li>
+      </ul>
+      <div class="example">
+        Exemple :
+        <code>&lt;strong&gt;Texte important&lt;/strong&gt;</code> donne :
+        <strong>Texte important</strong>
+        <br />
+        <code>&lt;em&gt;Texte en italique&lt;/em&gt;</code> donne :
+        <em>Texte en italique</em>
+      </div>
     </section>
-    
-    <HR>     
+
+    <section>
+      <h2>
+        4. Balise <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code> et
+        <code>&lt;li&gt;</code>
+      </h2>
+      <p>Ces balises permettent de créer des listes :</p>
+      <ul>
+        <li><code>&lt;ul&gt;</code> : liste à puces</li>
+        <li><code>&lt;ol&gt;</code> : liste numérotée</li>
+        <li><code>&lt;li&gt;</code> : un élément dans la liste</li>
+      </ul>
+      <div class="example">
+        Exemple :
+        <code>
+          &lt;ul&gt;<br />
+          &nbsp;&nbsp;&lt;li&gt;Chat&lt;/li&gt;<br />
+          &nbsp;&nbsp;&lt;li&gt;Chaton&lt;/li&gt;<br />
+          &lt;/ul&gt;
+        </code>
+        donne :
+        <ul>
+          <li>Chat</li>
+          <li>Chaton</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Balise <code>&lt;blockquote&gt;</code></h2>
+      <p>Utilisée pour afficher une citation mise en évidence.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;blockquote&gt;Ceci est une citation.&lt;/blockquote&gt;</code>
+        donne :
+        <blockquote>Ceci est une citation.</blockquote>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Balise <code>&lt;mark&gt;</code></h2>
+      <p>Permet de surligner un texte important.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;mark&gt;Texte surligné&lt;/mark&gt;</code> donne :
+        <mark>Texte surligné</mark>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Balise <code>&lt;a&gt;</code> (lien hypertexte)</h2>
+      <p>Permet de créer un lien vers une autre page web.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;a href="https://www.example.com"&gt;Lien&lt;/a&gt;</code>
+        donne :
+        <a href="https://www.koalastothemax.com/">Lien</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Balise <code>&lt;img&gt;</code> (image)</h2>
+      <p>Permet d'insérer une image dans la page.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;img src="image.jpg" alt="Description"&gt;</code>
+        donne :
+        <img src="asset/emoji-removebg.png" alt="Description" />
+      </div>
+    </section>
+
+    <section>
+      <h2>9. Balise <code>&lt;br&gt;</code> (saut de ligne)</h2>
+      <p>Insère un saut de ligne.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;p&gt;Texte&lt;br&gt;à la ligne&lt;/p&gt;</code>
+        donne :
+        <p>Texte<br />à la ligne</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>10. Balise <code>&lt;hr&gt;</code> (ligne horizontale)</h2>
+      <p>Crée une ligne horizontale de séparation.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;hr&gt;</code>
+        donne :
+        <hr />
+      </div>
+    </section>
+
+    <section>
+      <h2>11. Balise <code>&lt;div&gt;</code> (division)</h2>
+      <p>Définit une division ou un conteneur générique.</p>
+      <div class="example">
+        Exemple :
+        <code>&lt;div&gt;Contenu&lt;/div&gt;</code>
+        donne :
+        <div>Contenu</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>12. Balise <code>&lt;span&gt;</code> (étendue)</h2>
+      <p>Définit une petite étendue de texte.</p>
+      <div class="example">
+        Exemple :
+        <code
+          >&lt;p&gt;Texte &lt;span&gt;en couleur&lt;/span&gt;.&lt;/p&gt;</code
+        >
+        donne :
+        <p>Texte <span>en couleur</span>.</p>
+      </div>
+    </section>
+
+    <hr />
     <h2>Exercice 2 :</h2>
     <h1>1. Le langage SQL</h1>
     <ol>
-        <h2>1.1. Définition </h2></ol>
-    <p>Le langage <strong><abbr>SQL</abbr></strong> (<strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage ou Langage de requêtes structuré) est un langage comprenant à lui seul l’ensemble
-des ordres nécessaires à la création et à la gestion d’une base de données relationnelle. Il a été créé en 1986 et est en fait
-l’aboutissement de plusieurs langages (Sequel en 1977, System/R, …) créés depuis l’apparition du modèle relationnel en 1970
-(le modèle relationnel a été inventé par Mr Codd, un mathématicien de chez IBM). L'utilisation du langage SQL suppose
-obligatoirement que les données aient été définies selon le modèle relationnel au sein d'un <abbr>SGBDR</abbr> (Oracle ©, SQLServer, mySQL,
-PostgreSQL…).</p>
-    
-    <ol><h2>1.2. Les différentes normes utilisées</h2></ol>
-    Il existe aujourd'hui plusieurs normes relatives à l'utilisation du <u><strong>langage SQL</strong></u>. La différence entre ces deux normes se situe
-principalement dans l'écriture des jointures et dans l'ajout de fonctionnalités. :
+      <h2>1.1. Définition</h2>
+    </ol>
+    <p>
+      Le langage <strong><abbr>SQL</abbr></strong> (<strong>S</strong>tructured
+      <strong>Q</strong>uery <strong>L</strong>anguage ou Langage de requêtes
+      structuré) est un langage comprenant à lui seul l’ensemble des ordres
+      nécessaires à la création et à la gestion d’une base de données
+      relationnelle. Il a été créé en 1986 et est en fait l’aboutissement de
+      plusieurs langages (Sequel en 1977, System/R, …) créés depuis l’apparition
+      du modèle relationnel en 1970 (le modèle relationnel a été inventé par Mr
+      Codd, un mathématicien de chez IBM). L'utilisation du langage SQL suppose
+      obligatoirement que les données aient été définies selon le modèle
+      relationnel au sein d'un <abbr>SGBDR</abbr> (Oracle ©, SQLServer, mySQL,
+      PostgreSQL…).
+    </p>
+
+    <ol>
+      <h2>1.2. Les différentes normes utilisées</h2>
+    </ol>
+    Il existe aujourd'hui plusieurs normes relatives à l'utilisation du
+    <u><strong>langage SQL</strong></u
+    >. La différence entre ces deux normes se situe principalement dans
+    l'écriture des jointures et dans l'ajout de fonctionnalités. :
     <ul style="list-style-type: '-    '">
-        <li> La norme SQL 89 qui est encore très utilisée actuellement.</li>
-        <li> La norme SQL 92.</li>
-        <li> Aujourd'hui SQL 2011.</li>
+      <li>La norme SQL 89 qui est encore très utilisée actuellement.</li>
+      <li>La norme SQL 92.</li>
+      <li>Aujourd'hui SQL 2011.</li>
     </ul>
-Bien qu'il existe des normes il peut y avoir des différences entre SGBDR dans la syntaxe. Ainsi on peut lire sur le site de <u><strong>PostgreSQL</strong></u>:
-<ul>
-    <li>"Le développement de <big>PostgreSQL™</big> respecte le standard en vigueur, tant que celui-ci ne s'oppose pas aux fonctionnalités
-traditionnelles ou au bon sens…"</li> 
+    Bien qu'il existe des normes il peut y avoir des différences entre SGBDR
+    dans la syntaxe. Ainsi on peut lire sur le site de
+    <u><strong>PostgreSQL</strong></u
+    >:
+    <ul>
+      <li>
+        "Le développement de <big>PostgreSQL™</big> respecte le standard en
+        vigueur, tant que celui-ci ne s'oppose pas aux fonctionnalités
+        traditionnelles ou au bon sens…"
+      </li>
 
-    <li>"SQL-92 définit trois niveaux de conformité : basique (ENTRY), intermédiaire (INTERMEDIATE) et complète (FULL). La majorité des
-systèmes de gestion de bases de données se prétendaient compatibles au standard SQL dès lors qu'ils se conformaient au niveau
-Entry"</li>
-</ul>
+      <li>
+        "SQL-92 définit trois niveaux de conformité : basique (ENTRY),
+        intermédiaire (INTERMEDIATE) et complète (FULL). La majorité des
+        systèmes de gestion de bases de données se prétendaient compatibles au
+        standard SQL dès lors qu'ils se conformaient au niveau Entry"
+      </li>
+    </ul>
 
-<h1>2. Le modèle de données utilisé dans le cours</h1>
-<ol>
-<h2>2.1. Le modèle entité-association (ou MCD) d'un établissement hospitalier</h2>
-<h2>2.2. Le modèle relationnel (ou MRD) d'un établissement hospitalier</h2>
-<h2>2.3. La description textuelle des tables utilisées</h2>
-</ol>
-<code><mark style="background-color: yellow;">fonction_personnel</mark> <code style="opacity: 0.7;">(<u>code_fonction</u>, libelle_fonction)
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clé primaire : code_fonction</code>
-<br>
-<br>
-<mark style="background-color: yellow;">service</mark> <code style="opacity: 0.7;">(<u>num_service</u>, libelle_service, capacite_accueil, date_ouverture)
-<br>
-Clé primaire : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; num_service</code>
-</code>
-<br>
-<HR>
-<h2>Exercice 3 :</h2>
+    <h1>2. Le modèle de données utilisé dans le cours</h1>
+    <ol>
+      <h2>
+        2.1. Le modèle entité-association (ou MCD) d'un établissement
+        hospitalier
+      </h2>
+      <h2>
+        2.2. Le modèle relationnel (ou MRD) d'un établissement hospitalier
+      </h2>
+      <h2>2.3. La description textuelle des tables utilisées</h2>
+    </ol>
+    <code
+      ><mark style="background-color: yellow">fonction_personnel</mark>
+      <code style="opacity: 0.7"
+        >(<u>code_fonction</u>, libelle_fonction)
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clé
+        primaire : code_fonction</code
+      >
+      <br />
+      <br />
+      <mark style="background-color: yellow">service</mark>
+      <code style="opacity: 0.7"
+        >(<u>num_service</u>, libelle_service, capacite_accueil, date_ouverture)
+        <br />
+        Clé primaire :
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        num_service</code
+      >
+    </code>
 
-</body>
+    <br />
+    <hr />
+    <h2>Exercice 3 :</h2>
+
+    <section>
+      <h2>Mon CV</h2>
+
+      <header
+        style="
+          background-color: #001f3f;
+          color: white;
+          padding: 15px;
+          text-align: center;
+          border-radius: 10px;
+        "
+      >
+      <img src="asset/photo.png" alt="Photo de Shayma" style="width: 120px; border-radius: 50%; display: block; margin: 0 auto 10px;">
+        <h1>Shayma MERZOUGUI</h1>
+        <p><strong>20 ans, Permis B</strong></p>
+        <p>Étudiante en BTS SIO - Développement Web</p>
+        <p>
+          📍 <a href="https://maps.app.goo.gl/XvTE8eebyvKiy42d8" style="color:azure;">23 rue René Char, 26200 Montélimar</a> | 📞 <a href="tel:+330650303982" style="color:azure;">06 50 30 39 82</a> | ✉️
+          <a href="mailto:2026-SIO.MERZOUGUI-S@algoudlaffemas.fr" style="color:azure;">2026-SIO.MERZOUGUI-S@algoudlaffemas.fr</a> | 🔗 <a href="https://www.linkedin.com/in/shayma-merzougui-b6737823b/" target="_blank" style="color: #1DA1F2; text-decoration: none;">LinkedIn</a>
+        | <a href="https://github.com/Shasha-24" target="_blank" style="color: #fff; text-decoration: none;">GitHub</a> 
+        </p>
+      </header>
+
+        <h2>Profil Personnel</h2>
+        <p>
+          Motivée pour apprendre, rigoureuse, souriante, autonome, ponctuelle et
+          respectueuse. J’aime approfondir mes compétences et découvrir de
+          nouveaux domaines.
+        </p>
+      
+
+      
+        <h2>Compétences</h2>
+        <ul>
+          <li>💻 Programmation : Java, JavaScript, SQL, HTML / CSS</li>
+          <li>🎨 Créativité, autonomie, rigueur, travail en équipe</li>
+          <li>
+            🌍 Langues : Français (Natif), Anglais (B2-C1), Espagnol (A2-B1),
+            Arabe (B2)
+          </li>
+        </ul>
+     
+
+     
+        <h2>Formations</h2>
+        <ul>
+          <li>
+            <strong>2024 - 2025</strong> : BTS SIO - Lycée Algoud-Laffemas
+            (Valence)
+          </li>
+          <li>
+            <strong>2023 - 2024</strong> : Double Licence Économie - Gestion et
+            Langues (Valence)
+          </li>
+          <li>
+            <strong>2022 - 2023</strong> : BTS SIO en Alternance - École ISITECH
+            (Lyon)
+          </li>
+        </ul>
+      
+        <h2>Certifications et Diplômes</h2>
+        <ul>
+            <li><strong>2021 - 2022</strong> : Baccalauréat - Série générale, Lycée Alain Borne (Montélimar)</li>
+            <li><strong>2019</strong> : Certificat de compétence de citoyens de sécurité civile (PSC1)</li>
+            <li><strong>Cisco</strong> : CCNA 1 - Introduction à la cybersécurité</li>
+         </ul>
+
+      
+        <h2>Expérience Professionnelle</h2>
+        <ul>
+          <li>
+            <strong>2022 - 2023</strong> : Alternance - Square Info, entreprise
+            informatique (Montélimar)
+          </li>
+        </ul>
+      
+
+     
+        <h2>Loisirs</h2>
+        <ul>
+          <li>📖 Lire</li>
+          <li>🎮 Jeux vidéo</li>
+          <li>🏛️ Politique</li>
+          <li>🏅 Sports</li>
+        </ul>
+
+        <footer style="text-align: center; margin-top: 20px; font-size: 14px;">
+    <a href="asset/CV MERZOUGUI Shayma.pdf" download>
+      <button style="background-color: #d2b48c; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px;">
+        📄 Télécharger mon CV
+      </button>
+    </a>
+  </footer>
+    
+  </body>
 </html>
-
-
-
-
-
