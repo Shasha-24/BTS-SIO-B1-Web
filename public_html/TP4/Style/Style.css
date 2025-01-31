@@ -68,3 +68,23 @@ code {
   border-radius: 5px;
   font-style: italic;
 }
+/* Styles pour les logos */
+section a img {
+  width: 150px; /* Taille des logos */
+  height: auto; /* Conserve les proportions */
+  margin: 10px; /* Espacement entre les logos */
+  border-radius: 10px; /* Bords arrondis */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
+}
+
+/* Effet de survol (hover) */
+section a img:hover {
+  transform: scale(1.1); /* Agrandit légèrement le logo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
+}
+
+/* Centrer les logos */
+section a {
+  display: inline-block;
+  text-align: center;
+}
