@@ -212,3 +212,63 @@ code {
 #toc a:hover {
     text-decoration: underline;
 }
+
+#burger-menu {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Style du sommaire */
+#toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Largeur du menu latéral */
+    height: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+/* Masquer le sommaire par défaut */
+#toc.hidden {
+    transform: translateX(-100%);
+}
+
+/* Style des liens du sommaire */
+#toc ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#toc li {
+    margin-bottom: 15px;
+}
+
+#toc a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+#toc a:hover {
+    text-decoration: underline;
+}
+
+/* Optionnel : Style pour le titre du sommaire */
+#toc h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Transition pour le menu burger lors du clic */
+#burger-menu.active {
+    color: #007BFF;
+}
