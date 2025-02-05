@@ -1,15 +1,81 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil des Cours et TPs CSS</title>
+    <link rel="stylesheet" href="../../Style/Style page cours/Style_Cours_CSS/Style_Cours1_CSS.css" />
+</head>
+<body>
+    
+    <header>
+        <img src="../../asset/Image/CSS3_logo_and_wordmark.svg.png" alt="Logo CSS3" class="logo-css">
+        <h1>Bienvenue aux Cours et TPs CSS</h1>
+        <p>Apprends les bases du CSS, le langage essentiel pour styliser le web.</p>
+    </header>
+
+   
+    <button onclick="window.location.href = '../TP4.html'">Retour</button>
+
+    <main>
+        
+        <section>
+            <h2>Descriptif</h2>
+            <p>
+                Découvre les bases du CSS, le langage qui donne vie à tes pages web en les rendant attrayantes et dynamiques. Nos cours te guideront à travers les fondamentaux jusqu'aux techniques avancées, tandis que nos TPs te permettront de mettre en pratique tes connaissances.
+            </p>
+        </section>
+
+        
+        <section id="cours">
+            <h2>Cours</h2>
+            <div class="cards-container">
+               
+                <div class="card">
+                    <h3>Introduction au CSS</h3>
+                    <p>Familiarise-toi avec les bases du CSS et apprends à styliser tes premières pages web.</p>
+                    <a href="Cours/Cours_CSS1.html" class="btn">Accéder au cours</a>
+                </div>
+               
+                <div class="card">
+                    <h3>Box Model et Positionnement</h3>
+                    <p>Maîtrise le modèle des boîtes CSS et les techniques de positionnement pour organiser tes layouts.</p>
+                    <a href="Cours/Cours_CSS2.html" class="btn">Accéder au cours</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Animations et Transitions</h3>
+                    <p>Apprends à ajouter des animations et des effets de transition pour rendre tes sites web interactifs.</p>
+                    <a href="Cours/Cours_CSS3.html" class="btn">Accéder au cours</a>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="tps">
+            <h2>Travaux Pratiques (TPs)</h2>
+            <div class="cards-container">
+               
+                <div class="card">
+                    <h3>TP1 : Mise en Forme de Texte</h3>
+                    <p>Utilise les propriétés typographiques pour styliser le texte de tes pages web.</p>
+                    <a href="TPs/TP_CSS1.html" class="btn">Voir le TP</a>
+                </div>
+                
+                <div class="card">
+                    <h3>TP2 : Mise en Page avec Flexbox</h3>
+                    <p>Apprends à créer des mises en page flexibles avec Flexbox.</p>
+                    <a href="TPs/TP_CSS2.html" class="btn">Voir le TP</a>
+                </div>
+              
+                <div class="card">
+                    <h3>TP3 : Grilles avec CSS Grid</h3>
+                    <p>Explore CSS Grid pour concevoir des grilles de mise en page avancées.</p>
+                    <a href="TPs/TP_CSS3.html" class="btn">Voir le TP</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
 </html>
