@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil des Cours et TPs HTML</title>
+    <link rel="stylesheet" href="../../Style/Style page cours/Style_Cours_HTML/Style_Accueil_HTML.css" />
+</head>
+<body>
+    <!-- En-tête avec le logo HTML5 -->
+    <header>
+        <img src="../../asset/Image/html-5.png" alt="Logo HTML5" class="logo-html">
+        <h1>Bienvenue aux Cours et TPs HTML</h1>
+        <p>Plonge dans l'univers du HTML avec des cours détaillés et TPs pratiques.</p>
+    </header>
+
+    <!-- Bouton pour revenir en arrière -->
+    <button onclick="window.location.href = '../TP4.html'">Retour</button>
+
+    <main>
+        <!-- Section Descriptif -->
+        <section>
+            <h2>Descriptif</h2>
+            <p>
+                Apprends les bases du HTML, le langage fondamental du web. Que tu débutes ou que tu souhaites approfondir tes connaissances, nos ressources te guideront pas à pas.
+            </p>
+        </section>
+
+        <!-- Section des Cours -->
+        <section>
+            <h2>Cours</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Introduction au HTML</h3>
+                    <p>Découvre les fondamentaux du HTML et crée tes premières pages web.</p>
+                    <a href="Cours_HTML1.html" class="btn">Accéder au cours</a>
+                </div>
+                <div class="card">
+                    <h3>Structurer une Page</h3>
+                    <p>Apprends à organiser le contenu avec les balises de structure.</p>
+                    <a href="Cours_HTML2.html" class="btn">Accéder au cours</a>
+                </div>
+                <!-- Ajoute d'autres cartes pour les cours -->
+            </div>
+        </section>
+
+        <!-- Section des TPs -->
+        <section>
+            <h2>Travaux Pratiques (TPs)</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>TP1 : Page Personnelle</h3>
+                    <p>Crée une page de présentation pour te familiariser avec les balises de base.</p>
+                    <a href="TP_HTML1.html" class="btn">Voir le TP</a>
+                </div>
+                <div class="card">
+                    <h3>TP2 : Galerie d'Images</h3>
+                    <p>Apprends à intégrer des images et crée une galerie interactive.</p>
+                    <a href="TP_HTML2.html" class="btn">Voir le TP</a>
+                </div>
+                <!-- Ajoute d'autres cartes pour les TPs -->
+            </div>
+        </section>
+    </main>
+</body>
 </html>
+
