@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deuxième Page</title>
-    <link rel="stylesheet" href="../Style/Style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Bienvenue dans le TP4 Web</h1>
-      <p>Accédez aux cours et TPs en cliquant sur les images ou les liens ci-dessous.</p>
-    </header>
-    <button onclick="window.location.href='../../index.html'">Accueil</button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Deuxième Page</title>
+        <link rel="stylesheet" href="../Style/Style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Bienvenue dans le TP4 Web</h1>
+            <p>Accédez aux cours et TPs en cliquant sur les images ou les liens ci-dessous.</p>
+        </header>
+        <button onclick="window.location.href = '../../index.html'">Accueil</button>
 
-    <main>
-        <section>
-            <h2>Sommaire</h2>
-            <ul>
-                <li><a href="Cours HTML/Cours_HTML.html">Cours HTML</a></li>
-                <li><a href="Cours CSS/Cours_CSS.html">Cours CSS</a></li>
-                <li><a href="Cours JS/Cours_JS.html">Cours JavaScript</a></li>
-            </ul>
-        </section>
+        <main>
 
-        <section>
+
             <h2>Cours disponibles</h2>
-            <a href="Cours HTML/Cours_HTML.html"><img src="../asset/Image/HTML5_logo_and_wordmark.svg.png" alt="HTML"></a>
-            <a href="Cours CSS/Cours_CSS.html"><img src="../asset/Image/CSS3_logo_and_wordmark.svg.png" alt="CSS"></a>
-            <a href="Cours JS/Cours_JS.html"><img src="../asset/Image/Javascript-shield.svg" alt="JS"></a>
-        </section>
-    </main>
 
-</body>
+            <section>
+
+
+
+                <div class="card">
+                    <a href="Cours HTML/Cours_HTML.html"><img style='width: 150px' src="../asset/Image/html-5.png" alt="HTML"></a>
+                    <div class="card__content">
+                        <p class="card__title">HTML
+                        </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <a href="Cours CSS/Cours_CSS.html"><img src="../asset/Image/CSS3_logo_and_wordmark.svg.png" alt="CSS"></a>
+                    <div class="card__content">
+                        <p class="card__title">CSS
+                        </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <a href="Cours JS/Cours_JS.html"><img  src="../asset/Image/Javascript-shield.svg" alt="JS"></a>
+                    <div class="card__content">
+                        <p class="card__title">CSS
+                        </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <h2>Descriptif</h2>
+            <section>
+
+                <p>
+                    zauheaziezaeuazheiazuehazeuhazeizuahe
+                </p>
+            </section>
+            <h2>Sommaire</h2>
+            <section>
+
+                <ul>
+                    <li><a href="Cours HTML/Cours_HTML.html">Cours HTML</a></li>
+                    <li><a href="Cours CSS/Cours_CSS.html">Cours CSS</a></li>
+                    <li><a href="Cours JS/Cours_JS.html">Cours JavaScript</a></li>
+                </ul>
+            </section>
+        </main>
+
+    </body>
 </html>
 
