@@ -1,3 +1,25 @@
+/*----------------*/
+
+/* Ajouter ce CSS à votre feuille de style existante */
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 10px;
+}
+
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+/*----------------*/
 header {
   background-color: #d2b48c;
   text-align: center;
@@ -54,39 +76,13 @@ titre2 {
   padding-bottom: 5px;
 }
 
-code {
-  background: #f4f4f4;
-  padding: 2px 5px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-.example {
-  background: #f4f4f4;
-  padding: 10px;
-  margin: 10px 0;
-  border-left: 4px solid #d2b48c;
-  border-radius: 5px;
-  font-style: italic;
-}
 /* Styles pour les logos */
 section a img {
-  width: 150px; /* Taille des logos */
-  height: auto; /* Conserve les proportions */
-  margin: 10px; /* Espacement entre les logos */
-  border-radius: 10px; /* Bords arrondis */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation */
-}
-
-/* Effet de survol (hover) */
-section a img:hover {
-  transform: scale(1.1); /* Agrandit légèrement le logo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
-}
-
-/* Centrer les logos */
-section a {
-  display: inline-block;
+  width: 125px; /* Taille des logos */
+  height: 150px; /* Conserve les proportions */
+  margin: 10px; /* Espacement entre les logos */ 
   text-align: center;
+  margin-left: 25px;
 }
 
 /* Titres */
@@ -123,183 +119,71 @@ h4 {
     text-decoration: underline;
 }
 
-/* Paragraphe */
-p {
-    margin: 15px 0;
-    font-size: 1.1em;
-    text-align: justify;
-}
+/*****************/
 
-/* Listes */
-ul, ol {
-    margin-left: 20px;
-    padding-left: 10px;
-}
-
-li {
-    margin: 5px 0;
-}
-
-/* Tableaux */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: left;
-}
-
-td {
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-/* Corps */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 1200px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: #333;
-}
-
-/* Boutons */
-.copy-button, .run-button {
-    position: absolute;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem;
+.card {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(-45deg, #ffcb60 0%, #ffe4c4 100%);
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 0.1rem;
-    color: #888;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    margin: 10px;
 }
 
-.copy-button {
-    top: 0.5rem;
-    right: 0.5rem;
+.card svg {
+  width: 48px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.run-button {
-    bottom: 5px;
-    right: 5px;
-    text-decoration: none;
-    font-family: Arial;
-    color: #007BFF;
+.card:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.copy-button:hover, .run-button:hover {
-    color: #555;
+.card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    pointer-events: none; 
 }
 
-/* Conteneur Exemple */
-.exemple {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px 2rem;
-    background-color: #f9f9f9;
-    font-family: Consolas, monospace;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card img {
     position: relative;
 }
 
-code {
-    font-family: Consolas, monospace;
-    white-space: pre-wrap;
-    overflow-y: auto;
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
 }
 
-/* Images */
-.image-container {
-    display: flex;
-    gap: 10px;
-    max-width: 100%;
-    justify-content: space-between;
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
 }
 
-.image-container img {
-    width: calc(50% - 5px);
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.image-container img:hover {
-    transform: scale(1.05);
-}
-
-.image-container:has(img:only-child) {
-    justify-content: center;
-}
-
-.image-container:has(img:only-child) img {
-    width: auto;
-    max-width: 100%;
-}
-
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup img {
-    width: 80%;
-    max-height: 90%;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    object-fit: contain;
-}
-
-/* Table des matières */
-#toc {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    width: 250px;
-    max-height: 90%;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background-color: #f9f9f9;
-}
-
-#toc a {
-    text-decoration: none;
-    color: #007BFF;
-}
-
-#toc a:hover {
-    text-decoration: underline;
+.card:hover svg {
+  transform: rotate(0deg);
+  transform: rotate(-45deg);
 }
