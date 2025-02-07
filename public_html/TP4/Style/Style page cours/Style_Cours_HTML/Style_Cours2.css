@@ -275,6 +275,7 @@ code {
 
 .boutons-centres {
   text-align: center;
+  margin-top: 20px;
 }
 
 .bouton-lien {
@@ -286,9 +287,14 @@ code {
   margin: 10px;
   text-decoration: none;
   cursor: pointer;
+  border-radius: 5px; 
+  transition: all 0.3s ease; 
 }
 
 .bouton-lien:hover {
   background-color: #c0a080;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
