@@ -1,32 +1,61 @@
-header {
-  background-color: #d2b48c;
-  text-align: center;
-  padding: 20px;
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-header h1 {
-  margin: 0;
+h1 {
+    margin-bottom: 20px;
 }
 
-button {
-  background-color: #d2b48c;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 1%;
+/* Style du plateau de jeu */
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    width: 80%;
+    max-width: 800px;
 }
 
-button:hover {
-  background-color: #a0522d;
+/* Style des cartes */
+.card {
+    width: 100%;
+    padding-top: 100%; /* Pour garder un ratio d'aspect carré */
+    position: relative;
+    background-color: #007BFF; /* Couleur de fond des cartes */
+    border: 1px solid #0056b3;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Les images sont cachées */
+    transition: opacity 0.3s;
 }
+
+/* Effet de survol */
+.card:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .memory-board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 
 /*----------------*/
 
