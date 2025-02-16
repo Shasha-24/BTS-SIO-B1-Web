@@ -1,0 +1,102 @@
+body {
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #d2b48c;
+  text-align: center;
+  padding: 20px;
+  
+}
+
+.button-container {
+    margin-top: 20px;
+    
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d2b48c;
+    border-radius: 10px;
+    border: #d2b48c;
+    
+}
+
+button:hover {
+  background-color: #a0522d;
+  transform: scale(1.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+caption {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+caption {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+img {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+}
+
+/* Pour le lien du site web, la bulle d'info est générée grâce à l'attribut title */
+a[title] {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+td {
+  height: 60px; 
+}
+
+
