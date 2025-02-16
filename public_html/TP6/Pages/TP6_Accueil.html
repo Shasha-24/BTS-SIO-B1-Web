@@ -1,15 +1,255 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier Scolaire</title>
+    <link rel="stylesheet" href="../Style/Style_TP6_Accueil.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue dans mon TP6 !</h1>
+    </header>
+    
+    <div class="button-container">
+            <button onclick="window.location.href='../../index.html'">Retour à l'accueil</button>
+        </div>
+    <table>
+        <caption>Calendrier scolaire 2024-2025</caption>
+        <thead>
+            <tr>
+                <th>Période</th>
+                <th style="background-color: #FF4500">Zone A</th>
+                <th style="background-color: #4169E1">Zone B</th>
+                <th style="background-color: #9ACD32">Zone C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="background-color: #ccc">Prérentrée des enseignants</td>
+                <td colspan="3">Vendredi 30 août 2024</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Rentrée scolaire des élèves</td>
+                <td colspan="3">Lundi 2 septembre 2024</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Vacances de la Toussaint</td>
+                <td colspan="3">Du samedi 19 octobre au lundi 4 novembre 2024</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Vacances de Noël</td>
+                <td colspan="3">Du samedi 21 décembre 2024 au lundi 6 janvier 2025</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Vacances d'hiver</td>
+                <td>Du samedi 22 février au lundi 10 mars 2025</td>
+                <td>Du samedi 8 février au lundi 24 février 2025</td>
+                <td>Du samedi 15 février au lundi 3 mars 2025</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Vacances de printemps</td>
+                <td>Du samedi 19 avril au lundi 5 mai 2025</td>
+                <td>Du samedi 5 avril au lundi 21 avril 2025</td>
+                <td>Du samedi 12 avril au lundi 28 avril 2025</td>
+            </tr>
+            <tr>
+                <td style="background-color: #ccc">Vacances d'été</td>
+                <td colspan="3">À partir du samedi 5 juillet 2025</td>
+            </tr>
+        </tbody>
+        </table>
+        
+    <br>
+    <br>
+        
+        <table>
+    <caption>Langages de script côté serveur</caption>
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nom abrégé</th>
+        <th>Nom complet</th>
+        <th>Année de sortie</th>
+        <th>Site web de référence</th>
+        <th>Exemple de code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="../asset/PHP_Logo.png" target="_blank">
+              <img src="../asset/PHP_Logo.png" alt="Logo PHP" title="PHP">
+          </a>
+        </td>
+        <td>PHP</td>
+        <td>PHP: Hypertext Preprocessor</td>
+        <td>1995</td>
+        <td>
+          <a href="https://www.php.net" target="_blank" title="Site officiel PHP">
+            https://www.php.net
+          </a>
+        </td>
+        <td>
+          <code>&lt;?php echo "Hello, World!"; ?&gt;</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="../asset/Java_logo.png" target="_blank">
+                <img src="../asset/Java_logo.png" alt="Logo JSP" title="JSP">
+          </a>
+        </td>
+        <td>JSP</td>
+        <td>JavaServer Pages</td>
+        <td>1999</td>
+        <td>
+          <a href="https://www.oracle.com/java" target="_blank" title="Site officiel JSP">
+            https://www.oracle.com/java
+          </a>
+        </td>
+        <td>
+          <code>&lt;% out.println("Hello, World!"); %&gt;</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="../asset/ASP_Logo.png" target="_blank">
+                <img src="../asset/ASP_Logo.png" alt="Logo ASP" title="ASP">
+          </a>
+        </td>
+        <td>ASP</td>
+        <td>Active Server Pages</td>
+        <td>1996</td>
+        <td>
+          <a href="https://learn.microsoft.com/fr-fr/aspnet" target="_blank" title="Site officiel ASP">
+            https://learn.microsoft.com/fr-fr/aspnet
+          </a>
+        </td>
+        <td>
+          <code>&lt;% Response.Write("Hello, World!") %&gt;</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="../asset/Ruby_logo.png" target="_blank">
+                <img src="../asset/Ruby_logo.png" alt="Logo Ruby" title="Ruby">
+          </a>
+        </td>
+        <td>Ruby</td>
+        <td>Ruby</td>
+        <td>1995</td>
+        <td>
+          <a href="https://www.ruby-lang.org" target="_blank" title="Site officiel Ruby">
+            https://www.ruby-lang.org
+          </a>
+        </td>
+        <td>
+          <code>puts "Hello, World!"</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="../asset/Perl_logo.png" target="_blank">
+                <img src="../asset/Perl_logo.png" alt="Logo Perl" title="Perl">
+          </a>
+        </td>
+        <td>Perl</td>
+        <td>Practical Extraction and Report Language</td>
+        <td>1987</td>
+        <td>
+          <a href="https://www.perl.org" target="_blank" title="Site officiel Perl">
+            https://www.perl.org
+          </a>
+        </td>
+        <td>
+          <code>print "Hello, World!\n";</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <a href="../asset/Python_logo.png" target="_blank">
+                <img src="../asset/Python_logo.png" alt="Logo Python" title="Python">
+          </a>
+        </td>
+        <td>Python</td>
+        <td>Python</td>
+        <td>1991</td>
+        <td>
+          <a href="https://www.python.org" target="_blank" title="Site officiel Python">
+            https://www.python.org
+          </a>
+        </td>
+        <td>
+          <code>print("Hello, World!")</code>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+      
+    <br>
+    <br>
+    
+    <table>
+    <caption>Calendrier - Avril 2024</caption>
+    <thead>
+      <tr>
+        <th style="background-color: #9ACD32">Lundi</th>
+        <th style="background-color: #9ACD32">Mardi</th>
+        <th style="background-color: #9ACD32">Mercredi</th>
+        <th style="background-color: #9ACD32">Jeudi</th>
+        <th style="background-color: #9ACD32">Vendredi</th>
+        <th style="background-color: #9ACD32">Samedi</th>
+        <th style="background-color: #9ACD32">Dimanche</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td style="background-color: #b4ff54">6</td>
+        <td style="background-color: #b4ff54">7</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td style="background-color: #b4ff54">13</td>
+        <td style="background-color: #b4ff54">14</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td style="background-color: #b4ff54">20</td>
+        <td style="background-color: #b4ff54">21</td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td style="background-color: #b4ff54">27</td>
+        <td style="background-color: #b4ff54">28</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>30</td>
+        <td style="background-color: #ccc"></td>
+        <td style="background-color: #ccc"></td>
+        <td style="background-color: #ccc"></td>
+        <td style="background-color: #ccc"></td>
+        <td style="background-color: #ccc"></td>
+      </tr>
+    </tbody>
+  </table>
+    
+</body>
 </html>
