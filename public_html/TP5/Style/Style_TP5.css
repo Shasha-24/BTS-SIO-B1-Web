@@ -1,211 +1,150 @@
-/* Style général */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
 }
 
-h1 {
-    margin-bottom: 20px;
+header {
+  background-color: #d2b48c;
+  text-align: center;
+  padding: 20px;
 }
 
-/* Style du plateau de jeu */
-.memory-board {
+.container {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.memory-game {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 100px); /* Ajusté pour correspondre à la nouvelle taille des cartes */
     grid-gap: 10px;
-    width: 80%;
-    max-width: 800px;
 }
 
-/* Style des cartes */
 .card {
-    width: 100%;
-    padding-top: 100%; /* Pour garder un ratio d'aspect carré */
+    width: 100px;
+    height: 100px;
     position: relative;
-    background-color: #007BFF; /* Couleur de fond des cartes */
-    border: 1px solid #0056b3;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    perspective: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
-    position: absolute;
-    top: 0;
-    left: 0;
+.card-inner {
     width: 100%;
     height: 100%;
-    opacity: 0; /* Les images sont cachées */
-    transition: opacity 0.3s;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Effet de survol */
-.card:hover {
-    background-color: #0056b3;
+
+.card input {
+    display: none;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-    .memory-board {
-        grid-template-columns: repeat(2, 1fr);
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-image: url('../asset/Image/memory/super_mario.png');
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: red;
+}
+
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back img {
+    width: auto;
+    height: auto;
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+}
+
+.card input:checked + .card-inner {
+    transform: rotateY(180deg);
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d2b48c;
+    border-radius: 10px;
+    border: #d2b48c;
+    
+}
+
+button:hover {
+  background-color: #a0522d;
+  transform: scale(1.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 60px;
+        height: 60px;
+    }
+    .card-back img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .memory-game {
+        grid-template-columns: repeat(4, 60px);
     }
 }
 
-
-/*----------------*/
-
-/*body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  margin: 20px;
+.card:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-  font-size: 2rem;
+.card-front:hover {
+    filter: brightness(1.2);
+    transition: filter 0.3s;
 }
-section {
-  background: white;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-titre2 {
-  color: #333;
-  border-bottom: 2px solid #d2b48c;
-  padding-bottom: 5px;
-}
-
-h1, h2, h3, h4 {
-    font-weight: normal;
-    margin-bottom: 0.5em;
-    color: #333;
-}
-
-h1 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    background: linear-gradient(to right, #d2b48c, #ebcaa0);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-h3 {
-    font-size: 1.2em;
-    background-color: #a3c8f7;
-    color: black;
-    padding: 8px;
-    border-radius: 5px;
-}
-
-h4 {
-    font-size: 1em;
-    color: #666;
-    text-decoration: underline;
-}*/
-
-/* Styles généraux pour réinitialiser les marges et le padding */
-/* Réinitialisation des marges et du padding */
-/* *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-width: 600px;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-}
-
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto;
-  max-width: 1000px;
-}
-
 
 .card {
-  width: calc(20% - 10px); 
-  margin: 5px;
-  perspective: 1000px; 
+    border: 2px solid transparent;
+    transition: border 0.3s;
 }
 
-.card input {
-  display: none; 
+.card:hover .card-inner {
+    transform: rotateY(5deg);
+    transition: transform 0.3s;
 }
 
-.card label {
-  display: block;
-  width: 100%;
-  padding-top: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-  cursor: pointer;
-}
-
-
-.card .front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border: 1px solid blue;
-  border-radius: 8px;
+.card:hover {
+    border: 2px solid red;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Assure que la carte survolée reste au-dessus des autres */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 
-.card .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #3498db;
-  border: 1px solid blue;
-  border-radius: 8px;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-}
 
 
-.card input:checked + label {
-  transform: rotateY(180deg);
-}
-
-@media (max-width: 800px) {
-  .card {
-    width: calc(25% - 10px); 
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    width: calc(33.33% - 10px); 
-  }
-}
-
-.card label:hover {
-  transform: scale(1.05);
-}
-
-.card label {
-  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}*/
 
 
 
