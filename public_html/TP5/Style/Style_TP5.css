@@ -18,7 +18,7 @@ header {
 
 .memory-game {
     display: grid;
-    grid-template-columns: repeat(5, 100px); /* Ajusté pour correspondre à la nouvelle taille des cartes */
+    grid-template-columns: repeat(5, 100px); 
     grid-gap: 10px;
 }
 
@@ -138,7 +138,7 @@ button:hover {
     border: 2px solid red;
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Assure que la carte survolée reste au-dessus des autres */
+    z-index: 2; 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
