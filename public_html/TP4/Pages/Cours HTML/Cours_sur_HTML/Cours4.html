@@ -1,15 +1,819 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
+   <head>
+        <title>Cours HTML - 1</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../Style/Style page cours/Style_Cours_HTML/StyleCours.css" rel="stylesheet" type="text/css"/>
+        <script src="../../../Script/Script Cours HTML/ScriptTP4_Cours1.js" type="text/javascript" ></script>
+
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body class="p">
+        <div class="popup" id="popup" onclick="closePopup()">
+            <img id="popupImage" alt="Popup Image">
+        </div>    
+        
+      
+    <div id="burger-menu" onclick="toggleToc()" aria-label="Menu" aria-expanded="false">
+        &#9776;
+    </div>
+        
+         
+    <nav id="toc" class="hidden" role="navigation" aria-hidden="true">
+        
+    </nav>
+        <h1>HTML 5 – Partie 4 - Les tableaux</h1>
+        <h2 id="introduction">Introduction</h2>
+        <p><u>Remarque :</u> attention à ne pas confondre les tableaux HTML qui
+            servent à présentation des pages, avec les tableaux utilisés comme
+            structure de données dans les langages de programmation (C, Java…)</p>
+        <p>En HTML5, les tableaux sont
+            exclusivement réservés à la présentation de données. Ils ne doivent pas
+            être utilisés pour réaliser la disposition de la page. Depuis HTML4, il
+            faut cependant noter la disparition de très nombreux attributs
+            (width, border, cellpadding, cellspacing, frame et rules,
+            align et valign) de présentation qui doivent maintenant être réalisés
+            avec des feuilles de style CSS.</p>
+        
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image1.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <h2 id="les-balises-pour-les-tableaux">LES BALISES POUR LES
+            TABLEAUX</h2>
+        <p>Les balises HTML utilisés pour la représentation d’un tableau sont :
+            &lt;table&gt;, &lt;tr&gt;, &lt;td&gt;,
+            &lt;th&gt;,&lt;caption&gt;,&lt;colgroup&gt;,&lt;thead&gt;,
+            &lt;tbody&gt;, &lt;tfoot&gt;</p>
+        <p>Un tableau (&lt;table&gt;) comporte des lignes (row) &lt;tr&gt;. Ces
+            lignes contiennent des cellules &lt;td&gt; ou des en-têtes
+            &lt;th&gt;.</p>
+        <p>Exemple d’un tableau de 2 lignes, 2 colonnes. Du CSS a été ajouté
+            pour donner un « aspect tableau ».</p>
+        
+        <p class="exemple">
+            <code>
+&lt;div&gt;Exemple 1&lt;/div&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt; 1 &lt;/td&gt; &lt;td&gt; 2 &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt; 3 &lt;/td&gt; &lt;td&gt; 4 &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image2.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        
+        
+        <p>Pour fusionner des colonnes, la balise &lt;td&gt; et &lt;th&gt;
+            dispose de l’attribut colspan="x" où x correspond au nombre de colonnes
+            que l’on souhaite fusionner horizontalement. Son équivalent
+            verticalement est rowspan="x".</p>
+        <strong>Exemple :</strong>
+        <p class="exemple">
+            <code>
+&lt;div&gt;Exemple 2&lt;/div&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td colspan="3"&gt;Titre du tableau&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;4&lt;/td&gt; &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;div&gt;Exemple3&lt;/div&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;1&lt;/td&gt; &lt;td&gt;2&lt;/td&gt;
+        &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;5&lt;/td&gt; &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+                
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image3.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        
+        <p>Les cellules d’en-tête (h=header) de colonnes ou de lignes sont
+            définies par la balise &lt;th&gt;&lt;/th&gt; et non &lt;td&gt;. Le
+            contenu de la balise &lt;th&gt; apparaît en gras et au centre. La balise
+            &lt;caption&gt; placée après la balise &lt;table&gt; indique la légende
+            du tableau.</p>
+        <p><strong>Exemple :</strong></p>
+        <p class="exemple">
+            <code>
+&lt;table&gt;
+    &lt;caption&gt;<strong>la légende du tableau</strong>&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th&gt;<strong>Attribut</strong>&lt;/th&gt;
+        &lt;th&gt;<strong>Fonction</strong>&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;i&gt;<strong>colspan</strong>&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;<strong>pour la fusion de colonnes</strong>&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;i&gt;<strong>rowspan</strong>&lt;/i&gt;&lt;/td&gt;
+        &lt;td&gt;<strong>pour la fusion de lignes</strong>&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image4.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>Notons que cette balise permet de définir un en-tête soit de colonnes
+            ou bien de lignes, tout dépend du tableau à réaliser. Pour associer les
+            entêtes à leurs données dans ce type de tableaux, utiliser l’attribut
+            <strong>scope</strong> sur les balises &lt;th&gt;. La valeur de cet
+            attribut changera selon que la cellule d’entête concerne :</p>
+        <ul>
+            <li><p>La totalité d’une colonne : scope="col".</p></li>
+            <li><p>La totalité d’une ligne :
+                    scope="row".</p></li>
+        </ul>
+        <p>C’est le cas de tableau avec lecture à double entrée. Dans ce type de
+            tableau on note une cellule vide en haut à gauche.</p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image5.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p><strong>Exemple :</strong></p>
+        <p class="exemple">
+            <code>
+&lt;table&gt;
+    &lt;caption&gt;Températures moyennes mensuelles des 3 plus grandes villes de France.&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;td&gt;<strong>&amp;nbsp;</strong>&lt;/td&gt;
+        &lt;th scope="col"&gt;Paris&lt;/th&gt;
+        &lt;th scope="col"&gt;Marseille&lt;/th&gt;
+        &lt;th scope="col"&gt;Lyon&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;Juin&lt;/th&gt;
+        &lt;td&gt;22°C&lt;/td&gt;
+        &lt;td&gt;28°C&lt;/td&gt;
+        &lt;td&gt;26°C&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th scope="row"&gt;Juillet&lt;/th&gt;
+        &lt;td&gt;24°C&lt;/td&gt;
+        &lt;td&gt;30°C&lt;/td&gt;
+        &lt;td&gt;28°C&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image6.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <h3 id="structurer-son-tableau.">Structurer son tableau.</h3>
+        <p>Les balises permettant de structurer (respecter cet ordre) de façon
+            logique (n’affecte pas le visuel) les tableaux sont :</p>
+        <ul>
+            <li><p>&lt;thead&gt; : regrouper les informations concernant l’en-tête
+                    du tableau (titre, intitulé des colonnes).</p></li>
+            <li><p>&lt;tbody&gt; pour le corps du tableau, soit l’ensemble des
+                    données de celui-ci.</p></li>
+            <li><p>&lt;tfoot&gt; pour le contenu de bas de page par exemple des
+                    remarques ou une légende.</p></li>
+        </ul>
+        <p>Exemple :</p>
+        <p class="exemple">
+            <code>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan=<strong>"2"</strong>&gt;<strong>la fusion de lignes et </strong>
+                <strong>de colonnes</strong>
+            &lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;i&gt;<strong>colspan</strong>&lt;/i&gt;&lt;/td&gt;
+            &lt;td&gt;<strong>pour la fusion de colonnes</strong>&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;i&gt;<strong>rowspan</strong>&lt;/i&gt;&lt;/td&gt;
+            &lt;td&gt;<strong>pour la fusion de lignes</strong>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan=<strong>"2"</strong> style=<strong>"text-align: center;"</strong>&gt; <strong>Pied de tableau</strong>&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image7.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>La balise &lt;colgroup&gt; est utilisée pour grouper des colonnes en
+            vue de leur appliquer une mise en forme à l’ensemble des balises du
+            groupe par l’entremise d’une feuille de style CSS. Elle se positionne
+            juste après la balise &lt;table&gt; ou &lt;caption&gt; et avant
+            &lt;tr&gt;. L’attribut span="x" détermine le nombre de colonnes groupées
+            (x=1 par défaut).</p>
+        <p><u>Exemple</u> : pour illustrer cette balise, il est difficile de ne
+            pas appliquer un style. Voir attribut "style".</p>
+        <p class="exemple">
+            <code>
+&lt;table&gt;
+    &lt;colgroup span=<strong>"1"</strong> style=<strong>"background-color:cyan"</strong>&gt; &lt;/colgroup&gt;
+    &lt;colgroup span=<strong>"2"</strong> style=<strong>"background-color: bisque"</strong>&gt;&lt;/colgroup&gt;
+    &lt;tr&gt;
+        &lt;td&gt;<strong>1</strong>&lt;/td&gt;&lt;td&gt;<strong>2</strong>&lt;/td&gt;&lt;td&gt;<strong>3</strong>&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;<strong>4</strong>&lt;/td&gt;&lt;td&gt;<strong>5</strong>&lt;/td&gt;&lt;td&gt;<strong>6</strong>&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;<strong>7</strong>&lt;/td&gt;&lt;td&gt;<strong>8</strong>&lt;/td&gt;&lt;td&gt;<strong>9</strong>&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image8.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <h2 id="les-styles-sur-tableaux">Les styles sur tableaux</h2>
+        <p>La plupart des styles déjà étudiés s’appliquent également aux
+            tableaux. Mais nous allons revenir sur certaines de ces propriétés ce
+            qui nous permettra de comprendre un certain nombre de concepts liés au
+            CSS.</p>
+        <p>La plupart des exemples de ce cours seront basé sur l'exemple 5 du
+            précédent chapitre.</p>
+        <h3 id="les-bordures-et-la-couleur">Les bordures et la couleur </h3>
+        <p>Un des principes du CSS et que les enfants héritent des propriétés
+            CSS du parent. Toute balise HTML possède un parent hormis &lt;html&gt;.
+            Si ce parent possède un style particulier ce style est naturellement
+            transmis aux balises enfant.</p>
+        <p>Mais attention certaines propriétés sont héritables, d’autres pas. Ce
+            type d'information se trouve dans les spécifications du CSS. Il faut
+            donc bien analyser chaque propriété pour savoir.</p>
+        <p>Par exemple La propriété
+            « <strong>color »</strong> est une propriété héritable mais
+            « <strong>border »</strong> ne l’ai pas. C'est ce que l'on remarque dans
+            l'exemple suivant la couleur c'est bien propagé sur les balises enfant
+            TR et TH et TD, par contre la bordure ne s'est appliquée que sur la
+            balise table</p>
+        <p class="exemple">
+            <code>
+#T1{
+    color:red;
+    border-style: groove; 
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image9.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>Assis si l'on veut appliquer une bordure sur les cellules il faudra
+            répéter la propriété border style sur la balise TD ou TH. Notons au
+            passage que la balise TR ne peut se voir appliquer une bordure.</p>
+        <p class="exemple">
+            <code>
+#T1{
+    color:red;
+    border-style: groove;
+}
+#T1 td, #T1 th{ // sélecteur hiérarchique
+    border-style: groove;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image10.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>Nous notons dans l'exemple ci-dessus l’utilisation d'un sélecteur
+            hiérarchique que nous allons maintenant présenter.</p>
+        <h3 id="les-sélecteurs-hiérarchiques">Les sélecteurs hiérarchiques</h3>
+        <p>Il permet de désigner un élément contenu par un autre</p>
+        <table>
+            <colgroup>
+                <col style="width: 13%" />
+                <col style="width: 18%" />
+                <col style="width: 68%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>A B</th>
+                    <th>Descendants</th>
+                    <th>Sélectionne tout élément B qui est descendant d’un élément A.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A &gt; B</td>
+                    <td>Enfants</td>
+                    <td>Sélectionne tout élément B qui est enfant
+                        <strong><u>direct</u></strong> d’un élément A.</td>
+                </tr>
+                <tr>
+                    <td>A + B</td>
+                    <td>Frère adjacent</td>
+                    <td>Sélectionne tout élément B immédiatement précédé d’un élément
+                        A.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4 id="a-b"><strong>A B</strong> </h4>
+        <p>Reprenons l’exemple
+            précédent. Nous sélectionnons les descendants th et td du sélecteurs
+            d'identification #T1, même chose pour un autre tableau #T2. Cela permet
+            d’appliquer le style choisi a un tableau spécifique.</p>
+        <p class="exemple">
+            <code>
+#T1 td, #T1 th{
+    border-style: groove;
+}
+#T2 td, #T2 th{
+    border-style: dotted;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image11.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p><u>Voici un autre exemple :</u></p>
+        <p>Tous les paragraphes &lt;p&gt; inclus dans une balise &lt;div&gt;
+            seront sélectionnés pour la mise en forme, même ceux inclus dans d'autre
+            balise</p>
+        <p class="exemple">
+            <code>
+div p {
+    color:white;
+    background-color: black;
+}
+
+&lt;div&gt;
+    &lt;p&gt;Contenu du paragraphe &lt;/p&gt;
+    &lt;header&gt;
+        &lt;p&gt; ici aussi c'est un paragraphe&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;p&gt; autre paragraphe &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt; autre paragraphe &lt;/p&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+         <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image12.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p><u>Exemple <strong>A &gt; B</strong></u> :</p>
+        <p>Tous les paragraphes &lt;p&gt; directement descendant d’une balise
+            &lt;div&gt; seront concernés par la mise en forme, mais pas les
+            autres.</p>
+        <p class="exemple">
+            <code>
+div &gt; p {
+    color:white;
+    background-color: black;
+}
+&lt;div&gt;
+    &lt;p&gt;Contenu du paragraphe &lt;/p&gt;
+    &lt;header&gt;
+        &lt;p&gt; ici aussi c'est un paragraphe&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;p&gt; autre paragraphe &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt; autre paragraphe &lt;/p&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image13.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p><u>Exemple <strong>A + B</strong></u> : tous les paragraphes
+            &lt;p&gt; frère d’une balise &lt;div&gt; sera concerné par la mise en
+            forme.</p>
+        <p class="exemple">
+            <code>
+div + p {
+    color: white;
+    background-color: black;
+}
+
+&lt;div&gt;
+    &lt;p&gt;Contenu du paragraphe &lt;/p&gt;
+    &lt;div&gt;
+        &lt;p&gt; ici aussi c'est un paragraphe&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt; autre paragraphe &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt; autre paragraphe &lt;/p&gt;
+&lt;p&gt; autre paragraphe &lt;/p&gt;
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image14.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <h3 id="les-pseudos-classes-de-selection">Les pseudos classes de
+            selectioN</h3>
+        <p>Ce type de pseudo classe sont particulièrement intéressante pour la
+            mise en forme d'un tableau. Il va par exemple être possible de
+            sélectionnez une couleur particulière pour une ligne et alterner une
+            autre couleur pour la 2nde ligne.</p>
+        <table>
+            <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 83%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>:root</th>
+                    <th>Représente l’élément racine ou l’élément le plus haut d’un document.
+                        Par exemple, en HTML5, la balise &lt;html&gt;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>:empty</td>
+                    <td>Correspond aux éléments vides et qui n’ont donc pas d’enfants.</td>
+                </tr>
+                <tr>
+                    <td>:only-child</td>
+                    <td>Reprend l’enfant unique. Celui-ci n’a donc pas d’élément frère.</td>
+                </tr>
+                <tr>
+                    <td>:first-child</td>
+                    <td>Sélectionne le premier élément enfant.</td>
+                </tr>
+                <tr>
+                    <td>:last-child</td>
+                    <td>Sélectionne le dernier élément enfant.</td>
+                </tr>
+                <tr>
+                    <td>:nth-child(n)</td>
+                    <td>Désigne le nième élément enfant où n est un nombre ou les mots-clés
+                        even (pairs) ou odd (impairs).</td>
+                </tr>
+                <tr>
+                    <td>:nth-last-child(n)</td>
+                    <td>Sélectionne le nième enfant en partant du dernier élément.</td>
+                </tr>
+                <tr>
+                    <td>:only-of-type</td>
+                    <td>Reprend l’unique élément de ce type.</td>
+                </tr>
+                <tr>
+                    <td>:first-of-type</td>
+                    <td>Représente le premier élément de ce type.</td>
+                </tr>
+                <tr>
+                    <td>:last-of-type</td>
+                    <td>Représente le dernier élément de ce type.</td>
+                </tr>
+                <tr>
+                    <td>:nth-of-type(n)</td>
+                    <td>Désigne le nième élément de ce type où n est un nombre ou les
+                        mots-clés even (pairs) ou odd (impairs).</td>
+                </tr>
+                <tr>
+                    <td>:nth-last-of-type(n)</td>
+                    <td>Sélectionne le nième élément de ce type en partant du dernier
+                        élément.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><u>Exemple</u> : Le tableau T3 à la mise en forme suivante : couleur
+            de fond particulière pour la première ligne, blanc pour la première
+            cellule, puis « beige » pour les lignes paires, et  « burlywood » pour
+            les lignes impaires</p>
+        <p class="exemple">
+            <code>
+#T3 tr<em>:first-child</em>{
+    background-color: brown !important;
+}
+#T3 tr<em>:nth-child(even)</em>{
+    background-color: beige;
+}
+#T3 tr<em>:nth-child(odd)</em>{
+    background-color: burlywood;
+}
+#T3 td<em>:first-child</em>{
+    background-color: white;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image15.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>On note le mot clef CSS « <strong>!important</strong> » signifiant
+            que cette propriété passe avant les autres et doit s'appliquer en
+            priorité. Dans cet exemple l'application de la couleur « Brown » sur la
+            première ligne est prioritaire sur l'application de la couleur beige ou
+            « burlywood ». Il existe encore « <strong>!veryimportant »</strong> qui
+            a encore plus de pouvoir que <strong>« !important ».</strong></p>
+        <p>Il est à noter que ce style vient d'être appliqué sur la balise TR.
+            Il est bien entendu possible de même sur la balise TD ce qui ferait une
+            alternance de couleurs non pas sur les lignes mais sur les colonnes.</p>
+        <h3 id="autres-propriétés-css-de-mise-en-forme-du-tableau">Autres
+            propriétés CSS de mise en forme du tableau</h3>
+        <ul>
+            <li><p><strong>Exemple 1</strong> : Le tableau est centré sur la page,
+                    fait 80% de la largeur et le texte est centré dans les cellules, sans
+                    bordure.</p></li>
+        </ul>
+        <p class="exemple">
+            <code>
+#T3{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image16.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>Par défaut on note une séparation entre les cellules. Si on souhaite
+            coller les cellules il faut utiliser la propriété CSS
+            « <strong>border-collapse</strong> ». On contraire si on veut espacer
+            les cellules on utilisera « <strong>border-spacing</strong> ».</p>
+        <p><strong><u>Exemple </u></strong>: border-collapse</p>
+        <p class="exemple">
+            <code>
+#T3{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse;
+}
+#T3 td, #T3 th{
+    border: 1px solid black !important;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image17.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p><strong>Exemple :</strong> border-spacing</p>
+        <p class="exemple">
+            <code>
+#T4, #T3{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    border-spacing: 5px;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image18.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <ul>
+            <li><p><strong>Exemple 2</strong> : on note dans l’exemple précédent que
+                    les colonnes n’ont pas des largeurs uniformes, et la hauteur des lignes
+                    s’adaptent au contenu. Dans l'exemple qui suit nous aurons une largeur
+                    de colonne fixe et la hauteur de ligne fixe également et un alignement
+                    vertical sur le haut de la cellule soit &lt;td&gt; ou &lt;th&gt;. Par
+                    défaut l'alignement vertical est sur la valeur
+                    <strong>middle</strong></p></li>
+        </ul>
+        <p class="exemple">
+            <code>
+#T5{
+    height: 200px;
+    table-layout: fixed;
+}
+#T5 td, #T5 th{
+    vertical-align: top;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image19.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <p>On note que ce tableau fait 200 pixels de hauteur. Chaque ligne aura
+            une hauteur de (200 px - espacement) / 3. Dans tous les cas, la hauteur
+            de ligne ne pourra jamais être inférieure à son contenu. Avec la
+            propriété « <strong>table-layout</strong> » a <strong>fixed</strong> on
+            constate une largeur de colonne uniforme. La valeur par défaut pour
+            cette propriété est auto.</p>
+        <p>Dans cet exemple le visuel est
+            uniforme. Mais dans le cas d'un trop grand nombre de colonnes la largeur
+            cela ne serait plus le cas.</p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image20.png" alt="" onclick="openPopup(this)"/>
+        </div>
+        <ul>
+            <li><p><strong>Exemple 3</strong> : la légende du tableau avec
+                    &lt;caption&gt; s’affiche par défaut en haut du tableau. Il est possible
+                    de modifier cela avec la propriété CSS caption-side.</p></li>
+        </ul>
+        <p class="exemple">
+            <code>
+#T6{
+    caption-side: bottom;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        
+        <p>Par la suite il est possible d'appliquer un style sur la balise
+            &lt;caption&gt; selon notre convenance</p>
+        <ul>
+            <li><p><strong>Exemple 4</strong> :il s'agit d'une propriété que nous
+                    avons déjà évoquée avec les images. Il s'agit là la pseudo classe
+                    <strong>« hover »</strong> qui permet l'ordre le survol d'une ligne ou
+                    d'une cellule de changer l'aspect de celle-ci.</p></li>
+        </ul>
+        <p class="exemple">
+            <code>
+#T7 tr:hover{
+    background-color: #ccffcc;
+}
+#T7 td:hover{
+    background-color: aquamarine;
+}
+            </code>
+            <button class="copy-button"> 
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/copier.png" alt=""/>
+                <span>Copier le code</span> 
+            </button>
+            <a href="" target="_blank" class="run-button">
+                <img src="../../../asset/Image/Image Cours HTML/Cours4/codePen.png" alt=""/>
+                <span> Run</span>
+            </a>
+        </p>
+        <p><strong>Visuel :</strong></p>
+        <div class="image-container">
+            <img src="../../../asset/Image/Image Cours HTML/Cours4/image21.png" alt="" onclick="openPopup(this)"/>
+        </div>
+
+         <script>  generateToc('toc', ['h2']); </script>
     </body>
 </html>
