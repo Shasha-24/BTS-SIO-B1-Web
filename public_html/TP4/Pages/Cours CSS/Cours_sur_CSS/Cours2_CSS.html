@@ -1,0 +1,724 @@
+<html>
+   <head>
+        <title>Cours HTML - 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../../../Style/Style page cours/Style_Cours_HTML/StyleCours.css" rel="stylesheet" type="text/css"/>
+        <script src="../../../Script/Script Cours HTML/ScriptTP4_Cours1.js" type="text/javascript" ></script>
+
+    </head>
+    <body class="p">
+        <div class="popup" id="popup" onclick="closePopup()">
+            <img id="popupImage" alt="Popup Image">
+        </div>    
+        
+      
+    <div id="burger-menu" onclick="toggleToc()" aria-label="Menu" aria-expanded="false">
+        &#9776;
+    </div>
+        
+         
+    <nav id="toc" class="hidden" role="navigation" aria-hidden="true">
+        
+    </nav>
+        <h1>CSS 3 – Partie 2</h1>
+
+
+        <h2 id="introduction">INTRODUCTION</h2>
+        <p>Dans ce cours vous trouverez les propriétés CSS permettant de mettre
+            en forme le texte d'une page Web. Nous étudierons ses propriétés par
+            thème.</p>
+        <p>Pour bien comprendre le CSS il est important de comprendre la notion
+            de boîtes</p>
+        
+        
+        <h3 id="la-notion-de-boîtes-et-de-positionnement-static">La notion de
+            boîtes et de positionnement static</h3>
+        <p>Par défaut, les éléments HTML ont un type d'affichage (<strong>display</strong>) qui leur est associé. Ils sont généralement classés en deux catégories. 
+            Pour faire simple (car en réalité c'est plus complexe) les éléments HTML se décomposent en 2 catégories de boites :</p>
+        <ul>
+            <li><p>En bloc (block)</p></li>
+            <li><p>En ligne (inline)</p></li>
+        </ul>
+        <h4 id="bloc">BLOC : </h4>
+        
+        
+        <p>Les éléments de type bloc sont conçus pour prendre le maximum de
+            place sur la largeur de la page, et s'adaptent en hauteur en fonction de
+            son contenu. Les éléments blocs sont prévus pour contenir d'autres
+            éléments HTML de type bloc ou en ligne.</p>
+        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image1.png" alt="" onclick="openPopup(this)"/></div>
+        
+        
+        <p>Exemple avec une balise &lt;p&gt;. Dans le 1<sup>er</sup> visuel la "boite" &lt;p&gt; prend
+            toute la largeur de la page disponible et prend uniquement la hauteur
+            nécessaire à l'affichage du paragraphe (ici 5 lignes). Cette hauteur et
+            largeur de la "boite" s'adapte en fonction de la résolution de la page.
+            Dans le 2<sup>ème</sup> visuel la résolution de la page est plus petite,
+            notre boîte c'est adapté en largeur et en hauteur (maintenant 6 lignes
+            de texte)</p>
+        
+        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image2.png" alt="" onclick="openPopup(this)"/></div>
+        
+        <p>Comme un bloc prend tous l'espace disponible en largeur (même s'il y
+            a peu de contenu), le bloc suivant, peu importe son type, se placera
+            automatiquement en dessous de ce premier bloc comme illustré dans
+            l'exemple. Il n'est pas possible d'avoir 2 boites de type bloc côtes à
+            côtes.</p>
+        
+        
+        <p><u>Exemple</u></p>
+        <table>
+            <colgroup>
+                <col style="width: 43%" />
+                <col style="width: 56%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><strong>HTML</strong></th>
+                    <th><strong>VISUEL</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+&lt;p&gt;Bonjour&lt;/p&gt;
+&lt;p&gt;Bienvenue&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td>
+        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image3.png" alt="" onclick="openPopup(this)"/></div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4 id="en-ligne">EN LIGNE</h4>
+        <p>Une boîte en ligne prend la place nécessaire en largeur uniquement et
+            adapte sa hauteur en fonction de son contenu.</p>
+        <ul>
+            <li><p>Si la boîte suivante est en ligne elle vient se "coller" à la
+                    1<sup>ère</sup> boite.</p></li>
+            <li><p>Si la boîte suivante est en bloc elle vient se placer en dessous
+                    de la 1<sup>ère</sup> boite.</p></li>
+        </ul>
+        <p><u>Exemple</u> : la balise &lt;cite&gt; est une balise en ligne.
+            Cette balise prend uniquement la largeur et la hauteur nécessaire pour
+            afficher son contenu</p>
+        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image4.png" alt="" onclick="openPopup(this)"/></div>
+        
+        <h4 id="positionnement-static">POSITIONNEMENT STATIC</h4>
+        
+        <p>C'est le comportement par défaut de toutes boites. L'élément est
+            alors positionné dans le <strong><u>flux normal</u></strong> avec sa
+            position. Les propriétés <strong>top</strong>, <strong>right</strong>,
+            <strong>bottom</strong>, <strong>left</strong> et
+            <strong>z-index</strong> ne s'appliquent pas et n'ont pas d'effet sur
+            les boites positionné en "static".</p>
+        <p><strong>Définition flux normal :</strong></p>
+        <p>Le flux, c’est l’ordre d’affichage des éléments selon leur
+            comportement naturel d’affichage (en bloc ou en ligne), ces éléments se
+            succèdent dans l’ordre où ils sont déclarés dans le code HTML. A
+            l’écran, les différents éléments viennent se positionner de gauche à
+            droite puis de haut en bas</p>
+        <p>La notion de flux est essentielle pour bien maîtriser toutes les
+            subtilités du positionnement en CSS.</p>
+        
+        <h3 id="organisation-du-css">Organisation du CSS</h3>
+        
+        <p>Les propriétés CSS sont organisés en famille.</p>
+        <p>Dans ce cours nous verrons par exemple la propriété CSS
+            "<strong>text</strong>". Cette propriété est dite "raccourci". A partir
+            de cette famille il y a des sous familles et ainsi de suite, cela de
+            façon hiérarchique :</p>
+        <ul>
+            <li><p><strong>text-align</strong>, text-align-last</p></li>
+            <li><p><strong>text-decoration</strong>, text-decoration-color,
+                    text-decoration-line, text-decoration-style,
+                    text-decoration-skip,</p></li>
+        </ul>
+        <p>text-decoration-skip-ink</p>
+        <ul>
+            <li><p><strong>text-emphasis</strong>, text-emphasis-color,
+                    text-emphasis-position, text-emphasis-style</p></li>
+            <li><p><strong>etc…</strong></p></li>
+        </ul>
+        <h2 id="les-couleurs">Les couleurs</h2>
+        <p>2 propriétés, <strong>background-color</strong> pour la couleur
+            d'arrière-plan et <strong>color</strong> pour la couleur du texte. Par
+            défaut la couleur du texte est noir (black) quelque-soit la balise.</p>
+        <p>3 façons principales permettent de définir une couleur</p>
+        <ul>
+            <li><p><u>Valeur hexadécimal</u> : #rrggbb ou #rgb.</p></li>
+            <li><p><u>Fonction rgb ou rgba</u> : rgb(0, 0, 255), rgb(25%, 50%, 0%),
+                    ou rgba(0,0,255,0.5)</p></li>
+            <li><p><u>Nom</u> : par exemple red.</p></li>
+        </ul>
+        <p>Si on veut modifier le texte pour toute une page ou l'ensemble d'un
+            site Web, il suffit de modifier la couleur au niveau de la balise
+            &lt;body&gt;. Le principe d'héritage, déjà étudié, propagera cette
+            propriété sur toutes les autres balises &lt;p&gt;, &lt;a&gt;,
+            &lt;h1&gt;... de la page</p>
+        <table>
+            <colgroup>
+                <col style="width: 50%" />
+                <col style="width: 49%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><u>Exemple :</u> <strong>HTML</strong></th>
+                    <th><strong>CSS externe</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+&lt;p&gt;coucou&lt;/p&gt;
+&lt;h1&gt; un titre en rouge &lt;/h1&gt;
+&lt;a&gt;un lien&lt;/a&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+body {
+    color: red;
+}
+p{
+    background-color: yellow;
+}
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><strong>VISUEL</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image5.png" alt="" onclick="openPopup(this)"/></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="le-texte">Le texte</h2>
+        
+        <p>Plusieurs propriétés permettent de modifier l'aspect du texte :</p>
+        <ul>
+            <li><p><strong>text-align</strong> : permet de définir l'alignement
+                    horizontal du texte dans une boite de type bloc. Les valeurs possibles
+                    sont <strong>left, rigth, center, justify</strong>. Par défaut le texte
+                    est aligné à gauche. <u>Cette propriété n'a pas d'effet sur une boîte en
+                        ligne</u></p></li>
+            <li><p><strong>text-align-last</strong> : définit la façon dont la
+                    dernière ligne d'un bloc, ou une ligne avant un retour à la ligne forcé,
+                    doit être alignée.</p></li>
+            <li><p><strong>text-decoration</strong>
+                    : utilisée pour « décorer » le texte en ajoutant une ligne pouvant être
+                    positionnée sous, sur ou à travers le texte. Cette propriété s'applique
+                    aux éléments en ligne et en bloc</p>
+                    <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image6.png" alt="" onclick="openPopup(this)"/></div>
+            
+            </li>
+        </ul>
+        <p>Comme souvent en CSS cette propriété est le nom-raccourci qui peut
+            ensuite se décliner de façon plus détaillée:</p>
+        <ul>
+            <li><p><strong>text-decoration-color</strong>: pour définir la couleur.
+                    La valeur <strong>currentColor</strong> fixe la couleur à celle de la
+                    boite</p></li>
+            <li><p><strong>text-decoration-line</strong> : pour définir le
+                    positionnement de la décoration (<strong>underline</strong> : sous le
+                    texte, <strong>overline</strong> : au-dessus ,
+                    <strong>line-through</strong> : en travers de celui-ci). Il est possible
+                    de cumuler les différentes valeurs.</p></li>
+            <li><p><strong>text-decoration-style</strong>: permet de définir le
+                    style de la décoration comme illustré :</p></li>
+        </ul>
+        <p><u>Exemple</u> : utilisation des propriétés text-align,
+            text-align-last, et text-decoration</p>
+        <table>
+            <colgroup>
+                <col style="width: 52%" />
+                <col style="width: 47%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><u>Exemple :</u> <strong>HTML</strong></th>
+                    <th><strong>CSS externe</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+&lt;p id="<strong>p1</strong>"&gt;Orci varius natoque &lt;span
+        class="overline"&gt; penatibus et magnis&lt;/span&gt; dis parturient
+        montes, nascetur ridiculus mus. Integer congue augue ut elementum
+        consequat. Maecenas sodales ut orci nec congue. Morbi nibh odio, porta
+        vel aliquet et, eleifend ac neque.
+&lt;/p&gt;
+&lt;p id="<b>p2</b>"&gt;Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus. Integer congue augue ut
+        elementum consequat. Maecenas sodales ut orci nec congue. Morbi nibh
+        odio, porta vel aliquet et, eleifend ac neque.
+&lt;/p&gt;
+&lt;p id="<b>p3</b>"&gt;Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus. Integer congue augue ut
+        elementum consequat. Maecenas sodales ut orci nec congue. Morbi nibh
+        odio, porta vel aliquet et, eleifend ac neque.
+&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+#p1{
+    text-align: center;
+}
+#p2{
+    text-align: justify;
+    text-align-last: center;
+}
+#p3{
+    text-align: right;
+    text-decoration: solid underline chartreuse ;
+} <strong>// utilisation de la propriété raccourci</strong>
+
+.overline{
+    text-decoration-style : wavy ;
+    text-decoration-line : overline ;
+    text-decoration-color : red ;
+}<strong>// utilisation de la propriété détaillé</strong>
+
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><strong>VISUEL</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left;">
+   
+                        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image7.png" alt="" onclick="openPopup(this)"/></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li><p><strong>text_indent</strong> : définit la longueur (px, cm, em,
+                    %) qui doit être laissée avant le début de la première ligne</p></li>
+        </ul>
+        <table>
+            <colgroup>
+                <col style="width: 52%" />
+                <col style="width: 47%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><u>Exemple :</u> <strong>HTML</strong></th>
+                    <th><strong>CSS externe</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+                                
+&lt;p id="<b>p2</b>"&gt;Orci varius natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus. Integer congue augue ut
+    odio, porta vel aliquet et, eleifend ac neque.
+    elementum consequat. Maecenas sodales ut orci nec congue. Morbi nibh
+&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+#p2{
+    text-align: justify;
+    text-indent: 10em;
+}
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><strong>VISUEL</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left;">
+                        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image8.png" alt="" onclick="openPopup(this)"/></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li><p><strong>text-justify</strong> : exemple de propriété définie dans
+                    CSS3 mais non implémenté dans tous les navigateurs. Cette propriété
+                    s'applique en théorie quand la propriété <strong>text-align</strong> a
+                    la valeur <strong>justify.</strong> Pour vérifier si cette propriété est
+                    disponible on peut utiliser le site web caniuse.com : <a
+                        href="https://caniuse.com/?search=text-justify">https://caniuse.com/?search=text-justify</a></p></li>
+            <li><p><strong>text-orientation</strong> et
+                    <strong>writing-mode</strong>: certaines propriétés pour fonctionner ont
+                    besoins d'autres propriétés. C'est le cas ici. Ces 2 propriétés
+                    permettent de définir l'orientation du texte.</p></li>
+        </ul>
+        <table>
+            <colgroup>
+                <col style="width: 51%" />
+                <col style="width: 48%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><u>Exemple :</u> <strong>HTML</strong></th>
+                    <th><strong>CSS externe</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+                                
+&lt;p id="p2"&gt;Orci varius natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus. Integer congue augue ut
+    elementum consequat. Maecenas sodales ut orci nec congue. Morbi nibh
+    odio, porta vel aliquet et, eleifend ac neque.
+&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+#p2{
+    text-align: justify;
+    text-indent: 10em ;
+    writing-mode: vertical-rl;
+    
+    //pour un affichage vertical
+    text-orientation: mixed;
+}
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li><p><strong>text-transform</strong> : cette propriété permet de
+                    modifier l'affichage du texte : tout en minuscule
+                    (<strong>lowercase</strong>), en majuscule (<strong>uppercase</strong>),
+                    1<sup>ère</sup> lettre en majuscule
+                    (<strong>capitalize</strong>)</p></li>
+            <li><p><strong>text-shadow</strong> : ajoute des ombres au texte.
+                    Certains site web propose des générateurs de CSS : <a
+                        href="https://css3gen.com/text-shadow/">https://css3gen.com/text-shadow/</a></p></li>
+        </ul>
+        <table>
+            <colgroup>
+                <col style="width: 52%" />
+                <col style="width: 47%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><u>Exemple :</u> <strong>HTML</strong></th>
+                    <th><strong>CSS externe</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p class="exemple">
+                            <code>
+
+&lt;p id="p2"&gt;Orci varius natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus mus. Integer congue augue ut
+    elementum consequat. Maecenas sodales ut orci nec congue. Morbi nibh
+    odio, porta vel aliquet et, eleifend ac neque.
+&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+#p2{
+    text-align: justify;
+    text-transform: uppercase;
+    text-shadow: 3px -4px 1px rgba(204, 232, 223, 1);
+    line-height: 2em;
+}
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><strong>VISUEL</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left;">
+                        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image9.png" alt="" onclick="openPopup(this)"/> </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 id="la-police-de-caractères">La police de caractères</h2>
+        
+        
+        <p>La propriété raccourcie "font" permet de gérer les polices de
+            caractères. Elle se décline en plusieurs propriétés. En voici quelques
+            exemples (à consulter : <a
+                href="https://fonts.google.com">https://fonts.google.com</a> )</p>
+        <table>
+            <colgroup>
+                <col style="width: 11%" />
+                <col style="width: 32%" />
+                <col style="width: 55%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <td><strong>font-family</strong></td>
+                    <td colspan="2">Permet de définir la police de caractère
+                        (<strong>Times</strong>, <strong>Courier</strong>,
+                        <strong>Consolas</strong>, etc). Possibilité de mettre plusieurs police
+                        séparé par des (,) . La première police de la liste est appliquée si
+                        existante sinon les suivantes. Certaines polices "exotiques" ne seront
+                        pas reconnues par votre navigateur. Il est alors possible de télécharger
+                        cette dernière en utilisation la règle CSS <a
+                            href="https://developer.mozilla.org/fr/docs/Web/CSS/@font-face">https://developer.mozilla.org/fr/docs/Web/CSS/@font-face</a></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>font-size</strong></td>
+                    <td colspan="2">Définit la taille de police utilisée pour le texte
+                        (<strong>large, x-large, small</strong>, … ou une valeur en px, em, %,
+                        autre)</td>
+                </tr>
+                <tr>
+                    <td><strong>font-style</strong></td>
+                    <td colspan="2">Permet de sélectionner un style
+                        (<strong>italic</strong>) ou (<a
+                            href="https://caniuse.com/?search=oblique"><strong>oblique</strong></a>)
+                        avec un angle d'inclinaison ou (<strong>normal</strong>).</td>
+                </tr>
+                <tr>
+                    <td><strong>font-weight</strong></td>
+                    <td colspan="2">Permet de définir la graisse utilisée pour le texte.
+                        Prend les valeurs : normal | bold | bolder | lighter | 100 à 900</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><u>Exemple :</u> <strong>HTML</strong></td>
+                    <td><strong>CSS externe</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p class="exemple">
+                            <code>
+                                
+&lt;p id="p1"&gt;Du texte en italique&lt;/p&gt;
+&lt;p id="p2"&gt;Du texte en "Calibri"&lt;/p&gt;
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                    <td><p class="exemple">
+                            <code>
+#p1{
+    font-style: italic;
+    font-size: x-large;
+}
+    #p2{
+    font-style: normal ;
+    font-family: Calibri,Times New Roman,courier;
+    font-weight: bold;
+}
+                            </code>
+                            <button class="copy-button"> 
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/copier.png" alt=""/>
+                                <span>Copier le code</span> 
+                            </button>
+                            <a href="" target="_blank" class="run-button">
+                                <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/codePen.png" alt=""/>
+                                <span> Run</span>
+                            </a>
+                        </p></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;"><strong>VISUEL</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;">
+                        <div class="image-container"> <img src="../../../asset/Image/Image Cours CSS/Cours2_CSS/image10.png" alt="" onclick="openPopup(this)"/> </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2 id="style-sur-les-listes">Style sur les listes</h2>
+       
+        <p>Les balises HTML permettant de gérer les listes sont : &lt;OL&gt;
+            &lt;UL&gt; &lt;LI&gt; &lt;DL&gt; &lt;DT&gt; &lt;DD&gt;</p>
+        <p>Les propriétés de la famille list-syle permettent de modifier les
+            listes. S'applique sur l'ensemble de la liste (ul ou ol) ou
+            individuellement (sur li)</p>
+        <table>
+            <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 30%" />
+                <col style="width: 52%" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <td>list-style-position</td>
+                    <td>Inline, outside</td>
+                    <td>Définir la position du marqueur (cf. <a
+                            href="https://developer.mozilla.org/fr/docs/Web/CSS/::marker"><u>::marker</u></a>)
+                        de liste par rapport à la boîte principale.</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>list-style-type</td>
+                    <td>Square, circle, square, &lt;custom-ident&gt;, "chaine", none, etc
+                        …</td>
+                    <td>Permet de définir l'apparence de la puce d'un élément de liste</td>
+                </tr>
+                <tr>
+                    <td>list-style-image</td>
+                    <td>url de l'image</td>
+                    <td>Remplace les puces par une image personnalisé</td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <h2 id="style-sur-hr">style sur hr</h2>
+        <p><a
+                href="https://codepen.io/samuel-gibert/pen/QWqXZOG">https://codepen.io/samuel-gibert/pen/QWqXZOG</a></p>
+        <p>Voir exemple sur code pen</p>
+        <h2 id="une-image-contenant-texte-clipart-description-générée-automatiquementstyle-sur-progress">
+            style sur progress
+        </h2>
+        <p><a
+                href="https://codepen.io/samuel-gibert/pen/KKXjGLX">https://codepen.io/samuel-gibert/pen/KKXjGLX</a></p>
+        <p>Voir exemple sur code pen</p>
+        <p><h2 id="autres-propriétés">Autres propriétés</h2>
+        <p><a
+                href="https://codepen.io/samuel-gibert/pen/dyVBQpP">https://codepen.io/samuel-gibert/pen/dyVBQpP</a></p>
+        <p>Voici d'autres propriétés CSS permettant la mise en forme du
+            texte</p>
+        <ul>
+            <li><p> : définit l'espacement entre lettre d'un texte (en px, em, %,
+                    …).</p></li>
+        </ul>
+        <ul>
+            <li><p><strong>line-height</strong> : définit l'espacement d'une ligne à
+                    l'autre (en px, em, %, …)</p></li>
+            <li><p><strong>word-spacing</strong> : Définit l'espacement entre les
+                    mots</p></li>
+            <li><p><strong>hyphens</strong>: Définit la césure des mots, c'est à
+                    dire s'ils peuvent être coupés en fin de ligne et à quel endroit. Le
+                    caractère &amp;shy;   (tiret de césure) permet d'indiquer l'endroit où
+                    il est pertinent de couper les mots.</p></li>
+        </ul>
+        
+        
+         <div class="boutons-centres"><a href="../Accueil_page_HTML.html" class="bouton-lien">
+      Retour Accueil
+    </a>
+  </div>
+
+        <script>  generateToc('toc', ['h2']);</script>
+    </body>
+</html>
