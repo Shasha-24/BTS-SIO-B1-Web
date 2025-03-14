@@ -65,10 +65,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     y = parseInt(prompt("Entrez la largeur du rectangle :"));
                 } while (isNaN(x) || isNaN(y) || x <= 0 || y <= 0);
                 return {x, y};
+
+                function calculSurfaceRectangleControle() {
+                    let {x, y} = saisieValide();
+                    let surface = x * y;
+                    console.log("Surface du rectangle : " + surface);
+                    alert("Surface du rectangle : " + surface);
+                }
             }</script>
 
         <div class="button-container">
             <button onclick="calculSurfaceRectangle()"> Calculer </button>
         </div>
+
+        <h2>Exerice 4 :</h2>
+        <script>
+            function affichageDansPage() {
+                let {x, y} = saisieValide();
+                let surface = x * y;
+                document.write("<h2>Surface du rectangle : " + surface + "</h2>");
+            }
+        </script>
+        
+        <div class="button-container">
+            <button onclick="calculSurfaceRectangle()"> Calculer </button>
+        </div>
+        
+        <h2>Exerice 5 :</h2>
+
     </body>
 </html>
