@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>📅 Dépot TP8</title>
+        <title>👨‍💻 Dépot TP8</title>
         <link rel="stylesheet" href="../Style/Style_TP8.css">
     </head>
     <body>
@@ -17,11 +17,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <div class="button-container">
             <button onclick="window.location.href = '../../index.html'">Retour à l'accueil</button>
         </div>
-        
+
 
         <h2>Exercice 1 :</h2>
         <p>Ecrire une pages Web permettant de calculer la surface d'un rectangle en JS. Les données X et Y seront choisies par l'utilisateur avec prompt.<br>
-           On considère X et Y comme des entiers. Le résultat sera affiché dans la console et sous forme de boite de dialogue (type alert).
+            On considère X et Y comme des entiers. Le résultat sera affiché dans la console et sous forme de boite de dialogue (type alert).
         </p>
         <script>
             function calculSurfaceRectangle() {
@@ -32,16 +32,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 alert("Surface du rectangle : " + surface);
             }
         </script>
-        
+
         <div class="button-container">
-        <button onclick="calculSurfaceRectangle()"> Calculer </button>
+            <button onclick="calculSurfaceRectangle()"> Calculer </button>
         </div>
-        
+
         <h2>Exercice 2 :</h2>
         <script>
             function calculSurfaceConfirmation() {
-                
+                let x = parseInt(prompt("Entrez la longueur du rectangle :"));
+                let y = parseInt(prompt("Entrez la largeur du rectangle :"));
+                if (confirm("Voulez-vous utiliser ces valeurs ?")) {
+                    let surface = x * y;
+                    console.log("Surface du rectangle : " + surface);
+                    alert("Surface du rectangle : " + surface);
+                } else {
+                    calculSurfaceConfirmation();
+                }
             }
         </script>
+
+        <div class="button-container">
+            <button onclick="calculSurfaceRectangle()"> Calculer </button>
+        </div>
+
+        <h2>Exercice 3 :</h2>
+        <script>
+            function saisieValide() {
+                let x, y;
+                do {
+                    x = parseInt(prompt("Entrez la longueur du rectangle :"));
+                    y = parseInt(prompt("Entrez la largeur du rectangle :"));
+                } while (isNaN(x) || isNaN(y) || x <= 0 || y <= 0);
+                return {x, y};
+            }</script>
+
+        <div class="button-container">
+            <button onclick="calculSurfaceRectangle()"> Calculer </button>
+        </div>
     </body>
 </html>
