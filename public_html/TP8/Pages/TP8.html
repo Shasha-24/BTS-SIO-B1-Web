@@ -11,14 +11,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     </head>
     <body>
         <header>
-            <h1>Bienvenue dans mon TP7 !</h1>
+            <h1>Bienvenue dans mon TP8 !</h1>
         </header>
 
         <div class="button-container">
             <button onclick="window.location.href = '../../index.html'">Retour à l'accueil</button>
         </div>
+        
 
         <h2>Exercice 1 :</h2>
+        <p>Ecrire une pages Web permettant de calculer la surface d'un rectangle en JS. Les données X et Y seront choisies par l'utilisateur avec prompt.<br>
+           On considère X et Y comme des entiers. Le résultat sera affiché dans la console et sous forme de boite de dialogue (type alert).
+        </p>
         <script>
             function calculSurfaceRectangle() {
                 let x = parseInt(prompt("Entrez la longueur de votre rectangle :"));
@@ -26,6 +30,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 let surface = x * y;
                 console.log("La surface du rectangle est : " + surface);
                 alert("Surface du rectangle : " + surface);
-            }</script>
+            }
+        </script>
+        
+        <div class="button-container">
+        <button onclick="calculSurfaceRectangle()"> Calculer </button>
+        </div>
+        
+        <h2>Exercice 2 :</h2>
+        <script>
+            function calculSurfaceConfirmation() {
+                
+            }
+        </script>
     </body>
 </html>
