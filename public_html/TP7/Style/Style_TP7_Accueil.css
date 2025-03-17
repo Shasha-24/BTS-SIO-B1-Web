@@ -1,9 +1,35 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
-*/
-/* 
-    Created on : 17 mars 2025, 08:49:21
-    Author     : UTI022
-*/
+body {
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #d2b48c;
+  text-align: center;
+  padding: 20px;
+  
+}
+
+.button-container {
+    margin-top: 20px;
+    
+}
+
+.button-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #d2b48c;
+    border-radius: 10px;
+    border: #d2b48c;
+    
+}
+
+button:hover {
+  background-color: #a0522d;
+  transform: scale(1.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
