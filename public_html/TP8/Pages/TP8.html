@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -20,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
 
         <h2>Exercice 1 :</h2>
-        <p>Ecrire une pages Web permettant de calculer la surface d'un rectangle en JS. Les données X et Y seront choisies par l'utilisateur avec prompt.<br>
+        <p>Écrire une pages Web permettant de calculer la surface d'un rectangle en JS. Les données X et Y seront choisies par l'utilisateur avec prompt.<br>
             On considère X et Y comme des entiers. Le résultat sera affiché dans la console et sous forme de boite de dialogue (type alert).
         </p>
         <script>
@@ -38,6 +33,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         </div>
 
         <h2>Exercice 2 :</h2>
+        <p>Reprendre l'exercice précédent. Un message de confirmation demande à l'utilisateur s'il souhaite utiliser les valeurs saisies de X et Y.<br>
+            Si oui, le résultat est affiché, dans le cas contraire on redemandera la saisie tant que celle-ci n'est pas validé.</p>
         <script>
             function calculSurfaceConfirmation() {
                 let x = parseInt(prompt("Entrez la longueur du rectangle :"));
@@ -53,45 +50,155 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         </script>
 
         <div class="button-container">
-            <button onclick="calculSurfaceRectangle()"> Calculer </button>
+            <button onclick="calculSurfaceConfirmation()"> Calculer </button>
         </div>
 
         <h2>Exercice 3 :</h2>
+        <p>Reprendre l'exercice précédent. Les valeurs de X et Y doivent être correct :pas de chaine de caractères, seulement les chiffres sont acceptés.<br>
+            De plus un contrôle de saisies seront appliqués (X ou Y ne doit pas être négatif)</p>
         <script>
-            function saisieValide() {
-                let x, y;
+            function calculerSurfaceControle() {
+                let X, Y;
                 do {
-                    x = parseInt(prompt("Entrez la longueur du rectangle :"));
-                    y = parseInt(prompt("Entrez la largeur du rectangle :"));
-                } while (isNaN(x) || isNaN(y) || x <= 0 || y <= 0);
-                return {x, y};
-
-                function calculSurfaceRectangleControle() {
-                    let {x, y} = saisieValide();
-                    let surface = x * y;
-                    console.log("Surface du rectangle : " + surface);
-                    alert("Surface du rectangle : " + surface);
-                }
-            }</script>
+                    X = parseInt(prompt("Entrez la largeur du rectangle :"));
+                    Y = parseInt(prompt("Entrez la hauteur du rectangle :"));
+                } while (isNaN(X) || isNaN(Y) || X <= 0 || Y <= 0);
+                let surface = X * Y;
+                console.log("Surface : " + surface);
+                alert("Surface du rectangle : " + surface);
+            }
+        </script>
 
         <div class="button-container">
-            <button onclick="calculSurfaceRectangle()"> Calculer </button>
+            <button onclick="calculerSurfaceControle()"> Calculer </button>
         </div>
 
         <h2>Exerice 4 :</h2>
+        <p>
+            Reprendre l'exercice précédent. Le résultat est affiché dans la page web avec document.write("message");
+        </p>
         <script>
-            function affichageDansPage() {
-                let {x, y} = saisieValide();
-                let surface = x * y;
-                document.write("<h2>Surface du rectangle : " + surface + "</h2>");
+            function afficherSurfacePage() {
+                let X, Y;
+                do {
+                    X = parseInt(prompt("Entrez la largeur du rectangle :"));
+                    Y = parseInt(prompt("Entrez la hauteur du rectangle :"));
+                } while (isNaN(X) || isNaN(Y) || X <= 0 || Y <= 0);
+                let surface = X * Y;
+                document.write("<p>Surface du rectangle : " + surface + "</p>");
             }
         </script>
-        
-        <div class="button-container">
-            <button onclick="calculSurfaceRectangle()"> Calculer </button>
-        </div>
-        
-        <h2>Exerice 5 :</h2>
 
-    </body>
+        <div class="button-container">
+            <button onclick="afficherSurfacePage()"> Calculer </button>
+        </div>
+
+        <h2>Exerice 5 :</h2>
+        <p>
+            Reprendre l'exercice précédent. le calcul sera réalisé par une fonction rect()  à écrire.
+        </p>
+        <script>
+            function rect(X, Y) {
+                return X * Y;
+            }
+            function afficherSurfaceAvecFonction() {
+                let X, Y;
+                do {
+                    X = parseInt(prompt("Entrez la largeur du rectangle :"));
+                    Y = parseInt(prompt("Entrez la hauteur du rectangle :"));
+                } while (isNaN(X) || isNaN(Y) || X <= 0 || Y <= 0);
+                document.write("<p>Surface du rectangle : " + rect(X, Y) + "</p>");
+            }
+        </script>
+
+        <div class="button-container">
+            <button onclick="afficherSurfaceAvecFonction()"> Calculer </button>
+        </div>
+
+        <h2>Exercice 6 :</h2>
+        <p>
+            Écrire une fonction permettant d'afficher dans une page la table de multiplication choisi par l'utilisateur. Cette page s'affichera sous forme de tableau HTML.
+        </p>
+        <script>
+            function afficherTableMultiplication() {
+                let N = parseInt(prompt("Entrez un nombre pour voir sa table de multiplication :"));
+                if (isNaN(N))
+                    return;
+                document.write("<table border='1'><tr><th>Multiplication de " + N + "</th></tr>");
+                for (let i = 1; i <= 10; i++) {
+                    document.write("<tr><td>" + N + " x " + i + " = " + (N * i) + "</td></tr>");
+                }
+                document.write("</table>");
+            }
+        </script>
+        <div class="button-container">
+            <button onclick="afficherTableMultiplication()"> Calculer </button>
+        </div>
+
+        <h2>Exercice 7 :</h2>
+
+        <p>
+            Reprendre l'exercice de début d'année. En fonction de la saisie de l'utilisateur on affichera une page WEB représentant le devis correspondant :<br>
+
+            La cimenterie Lafarge souhaite disposer d’une application permettant de calculer le volume de béton nécessaire pour une dalle en béton armé dosé à 350kg/m3 (350 kg de ciment pour 1 m3 de béton) pour des maisons individuelles, 
+            ainsi qu’un outil d’aide au calcul de la facture.
+            <br>
+            <br>
+
+            L’épaisseur minimal de la dalle est de 15 cm pouvant aller jusqu’à 35 cm. Ensuite le volume dépend bien sûr de la surface plancher de l’habitation.<br>
+
+            Afin de préparer au mieux le mélange béton l’application indiquera la quantité en tonne de ciment nécessaire.<br>
+
+            Dernière précision, la société propose uniquement des livraisons de camions de 9m3 (ni plus, ni moins). Il faudra donc adapter le volume en fonction de ce critère à l’entier supérieur. <br>
+            L’application indiquera donc le nombre de camions nécessaires.
+
+            <br>
+            <br>
+
+            Le prix du m3 de béton est actuellement de 91€ HT, le prix du transport et de 140€ par livraison.  L’application indiquera donc le tarif HT et TTC du devis.
+
+            <br>
+            <br>
+
+            Pour résoudre ce problème nous allons procéder de la façon suivante :</p>
+
+                 <li>Lister les données nécessaires. Celles qui sont en entrées, et celles qui sont des résultats.
+
+                 <li>Trouver les règles de calcul qui vont permettre de transformer nos entrées en sortie.
+
+                 <li>Ecrire l’algorithme sur papier
+
+                 <li>Le coder en JAVA.
+
+                 <li>Tester le programme avec différentes entrées, vérifier le résultat.
+                </li>      
+
+    <script>
+        function calculerDevisBeton() {
+            let surface = parseFloat(prompt("Entrez la surface en m² :"));
+            let epaisseur = parseFloat(prompt("Entrez l'épaisseur en cm (15-35) :"));
+            if (isNaN(surface) || isNaN(epaisseur) || epaisseur < 15 || epaisseur > 35 || surface <= 0)
+                return;
+            let volume = (surface * (epaisseur / 100));
+            let ciment = volume * 0.35;
+            let nbCamions = Math.ceil(volume / 9);
+            let prixBeton = volume * 91;
+            let prixTransport = nbCamions * 140;
+            let totalHT = prixBeton + prixTransport;
+            let totalTTC = totalHT * 1.2;
+            document.write(` <p>Volume de béton : ${volume.toFixed(2)} m³</p>
+<p>Ciment nécessaire : ${ciment.toFixed(2)} tonnes</p>
+<p>Nombre de camions : ${nbCamions}</p>
+<p>Prix HT : ${totalHT.toFixed(2)} €</p>
+<p>Prix TTC : ${totalTTC.toFixed(2)} €</p>
+`);
+        }
+    </script>
+    <div class="button-container">
+        <button onclick="calculerDevisBeton()"> Calculer </button>
+    </div>
+
+
+</body>
 </html>
+
