@@ -4,44 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-body, html {
-    height: 100%;
-    margin: 0;
-}
+            body, html {
+                height: 100%;
+                margin: 0;
+            }
 
-.zone-haut {
-    background-color: #ff5555;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    height: 100px; /* Hauteur fixe pour la zone du haut */
-}
+            .zone-haut {
+                background-color: #ff5555;
+                color: black;
+                padding: 20px;
+                width: 100%;
+                height: 125px;
+                box-sizing: border-box;
+            }
 
-/* Conteneur pour les zones gauche et milieu */
-.conteneur {
-    display: flex;
-    width: 100%;
-    height: calc(100% - 100px); /* La hauteur prend tout l'espace restant après la zone du haut */
-}
 
-/* Zone de gauche */
-.zone-gauche {
-    background-color: #5586ff;
-    color: white;
-    width: 25%;
-    padding: 20px;
-    height: 100%;
-}
+            .conteneur {
+                display: flex;
+                width: 100%;
+                height: calc(100% - 100px);
+            }
 
-/* Zone du milieu */
-.zone-milieu {
-    background-color: #55d87b;
-    color: white;
-    width: 75%;
-    padding: 20px;
-    height: 100%;
-}
+            .zone-gauche {
+                background-color: #5586ff;
+                color: black;
+                width: 25%;
+                padding: 20px;
+                height: 100%;
+            }
+
+            .zone-milieu {
+                background-color: #55d87b;
+                color: black;
+                width: 75%;
+                padding: 20px;
+                height: 100%;
+            }
         </style>    
 
     </head>
