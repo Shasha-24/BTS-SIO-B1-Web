@@ -9,12 +9,11 @@ header {
   background-color: #d2b48c;
   text-align: center;
   padding: 20px;
-  
 }
 
 .button-container {
     margin-top: 20px;
-    
+    text-align: center; 
 }
 
 .button-container button {
@@ -24,13 +23,22 @@ header {
     background-color: #d2b48c;
     border-radius: 10px;
     border: #d2b48c;
-    
+    margin: 7px; 
 }
 
 button:hover {
   background-color: #a0522d;
   transform: scale(1.05);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button {
+  background-color: #d2b48c;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 1%;
 }
 
 h2 {
