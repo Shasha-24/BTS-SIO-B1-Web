@@ -33,15 +33,6 @@ button:hover {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button {
-  background-color: #d2b48c;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 1%;
-}
-
 h2 {
     font-size: 1.5em;
     background: linear-gradient(to right, #d2b48c, #ebcaa0);
@@ -56,4 +47,8 @@ section {
   margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
 }
