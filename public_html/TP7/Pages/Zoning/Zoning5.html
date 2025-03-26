@@ -1,15 +1,71 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
--->
-<html>
+<html lang="fr">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+        <title>Page_Zoning4</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+           * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .container {
+            display: grid;
+            grid-template-rows: 10vh 5vh auto 10vh; 
+            grid-template-columns: 2% 48% 48% 2%; /* Ajout d'une colonne pour les divisions A/B et C/D */
+            height: 100vh;
+            width: 100vw;
+            border: 3px solid black;
+        }
+
+        .top, .menu, .bottom {
+            grid-column: span 4;
+            padding: 1vh;
+        }
+
+        .main {
+            grid-column: 2 / 4; /* Occupe les 2 colonnes du milieu */
+            display: grid;
+            grid-template-rows: 1fr 1fr; /* 2 lignes égales pour A et C, B et D */
+            grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+            padding: 1vh;
+            height: 100%; 
+        }
+
+       
+
+        .a { background-color: #1abc9c; }
+        .b { background-color: #f39c12; }
+        .c { background-color: #9b59b6; }
+        .d { background-color: #3498db; }
+
+        #id-C {
+            background-color: #f4d03f;
+            margin-top: 1%;
+        }
+        #id-M {
+            background-color: #9b59b6;
+        }
+        #id-HB {
+            background-color: #1abc9c;
+        }
+        #id-HB2 {
+             background-color: #1abc9c;
+             margin-top: 2%;
+        }
+
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <div class="top" id="id-HB">Haut</div>
+        <div class="menu" id="id-M">Menu</div>
+        <div class="main">
+            <div class="a" id="id-C">A</div>
+            <div class="b" id="id-C">B</div>
+            <div class="c" id="id-C">C</div>
+            <div class="d" id="id-C">D</div>
+        </div>
+        <div class="bottom" id="id-HB2">Bas</div>
+    </div>
+</body>
 </html>
