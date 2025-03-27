@@ -1,383 +1,225 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Calcul de devis pour dalle en béton</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 0;
-    }
+    <head>
+        <meta charset="UTF-8">
+        <title>Calcul de devis pour dalle en béton</title>
+        <link rel="stylesheet" href="../Style/Style_TP8_Formulaire.css">
+        
+    </head>
+    <body>
+        <header>
+            <h1>Application de calcul de devis pour dalle en béton</h1>
+        </header>
 
-    header {
-      background: #4a4a4a;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
+        <div class="container">
+            <h2>Formulaire de saisie</h2>
+            <form id="formDevis">
+                <label for="nom">Nom :</label>
+                <input 
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
+                    title="Le nom ne doit contenir que des lettres, espaces ou tirets."
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir un nom valide (uniquement des lettres, espaces ou tirets).')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+                <label for="prenom">Prénom :</label>
+                <input 
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
+                    title="Le prénom ne doit contenir que des lettres, espaces ou tirets."
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir un prénom valide (uniquement des lettres, espaces ou tirets).')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    h1, h2, h3, h4 {
-      margin-top: 0;
-    }
+                <label for="email">Email :</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir une adresse email valide (exemple@domaine.fr).')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+                <label for="telephone">Téléphone :</label>
+                <input
+                    type="tel"
+                    id="telephone"
+                    name="telephone"
+                    pattern="[0-9]+"
+                    title="Le téléphone ne doit contenir que des chiffres (ex : 0612345678)."
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir uniquement des chiffres pour le téléphone (ex : 0612345678).')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    label {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
+                <label for="epaisseur">Épaisseur de la dalle (en cm) :</label>
+                <input
+                    type="number"
+                    id="epaisseur"
+                    name="epaisseur"
+                    min="15"
+                    max="35"
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir une épaisseur entre 15 et 35 cm.')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="number"] {
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
-      box-sizing: border-box;
-    }
+                <label for="surface">Surface de la dalle (en m²) :</label>
+                <input
+                    type="number"
+                    id="surface"
+                    name="surface"
+                    min="1"
+                    required
+                    oninvalid="this.setCustomValidity('Veuillez saisir une surface en m² (minimum 1).')"
+                    oninput="this.setCustomValidity('')"
+                    >
 
-    .button-container {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-    }
+                <div class="button-container">
+                    <button type="button" onclick="calculerDevis()">Obtenir le devis</button>
+                </div>
+            </form>
 
-    button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background: #4a4a4a;
-      color: #fff;
-    }
+            <div id="devis">
+                <div class="devis-header">
+                    <h2>Devis pour dalle en béton</h2>
+                    <div class="info-devis">
+                        <p><strong>N° Devis :</strong> <span id="infoNumeroDevis"></span></p>
+                        <p><strong>Date :</strong> <span id="infoDateDevis"></span></p>
+                        <p><strong>Validité :</strong> <span id="infoValidite"></span></p>
+                    </div>
+                </div>
 
-    button:hover {
-      background: #333;
-    }
+                <div class="info-client">
+                    <h3>Informations du client</h3>
+                    <p><strong>Nom :</strong> <span id="infoNom"></span></p>
+                    <p><strong>Prénom :</strong> <span id="infoPrenom"></span></p>
+                    <p><strong>Email :</strong> <span id="infoEmail"></span></p>
+                    <p><strong>Téléphone :</strong> <span id="infoTelephone"></span></p>
+                </div>
 
-    /* Zone d’affichage du devis */
-    #devis {
-      margin-top: 2rem;
-      padding: 2rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      display: none; /* masqué par défaut */
-      background: #fafafa;
-    }
+                <div class="info-calcul">
+                    <h3>Détails du calcul</h3>
+                    <p><strong>Épaisseur (cm) :</strong> <span id="infoEpaisseur"></span></p>
+                    <p><strong>Surface (m²) :</strong> <span id="infoSurface"></span></p>
 
-    /* En-tête du devis */
-    .devis-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-    }
+                    <table>
+                        <tr>
+                            <th>Volume nécessaire (m³)</th>
+                            <th>Volume final livré (m³)</th>
+                            <th>Quantité de ciment (tonnes)</th>
+                            <th>Nombre de camions (9m³)</th>
+                        </tr>
+                        <tr>
+                            <td id="infoVolumeCalcule"></td>
+                            <td id="infoVolumeFinal"></td>
+                            <td id="infoCiment"></td>
+                            <td id="infoCamions"></td>
+                        </tr>
+                    </table>
 
-    .devis-header h2 {
-      margin: 0;
-    }
+                    <div class="tarifs">
+                        <h4>Récapitulatif des tarifs</h4>
+                        <p><strong>Prix du béton HT :</strong> <span id="infoPrixBetonHT"></span> €</p>
+                        <p><strong>Prix du transport HT :</strong> <span id="infoPrixTransportHT"></span> €</p>
+                        <p><strong>Sous-total HT :</strong> <span id="infoTotalHT"></span> €</p>
+                        <p><strong>TVA (20%) :</strong> <span id="infoTVA"></span> €</p>
+                        <p><strong>Total TTC :</strong> <span id="infoTotalTTC"></span> €</p>
+                    </div>
+                </div>
 
-    .devis-header .info-devis {
-      text-align: right;
-    }
+                <div class="conditions">
+                    <p><strong>Conditions générales :</strong></p>
+                    <ul>
+                        <li>Le présent devis est valable 30 jours à compter de la date d’émission.</li>
+                        <li>Le prix du béton est susceptible d’être révisé en cas de fluctuation importante du coût des matières premières.</li>
+                        <li>Le transport est facturé à la livraison, sans possibilité de livraison partielle (camion complet de 9m³).</li>
+                        <li>Pour toute question ou modification, merci de nous contacter.</li>
+                    </ul>
+                </div>
 
-    .info-client, .info-calcul {
-      margin-bottom: 1.5rem;
-    }
-
-    .info-client p, .info-calcul p {
-      margin: 0.25rem 0;
-    }
-
-    .info-calcul table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .info-calcul th, .info-calcul td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-
-    .info-calcul th {
-      background: #eaeaea;
-    }
-
-    .tarifs {
-      margin-top: 1rem;
-    }
-
-    .tarifs p {
-      margin: 0.25rem 0;
-    }
-
-    .conditions {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    @media print {
-  body, html {
-    margin: 0;
-    padding: 0;
-  }
-  body * {
-    visibility: hidden !important;
-  }
-  #devis, #devis * {
-    visibility: visible !important;
-  }
-  #devis {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-}
-
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Application de calcul de devis pour dalle en béton</h1>
-  </header>
-
-  <div class="container">
-    <h2>Formulaire de saisie</h2>
-    <form id="formDevis">
-      <label for="nom">Nom :</label>
-      <input 
-        type="text"
-        id="nom"
-        name="nom"
-        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
-        title="Le nom ne doit contenir que des lettres, espaces ou tirets."
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir un nom valide (uniquement des lettres, espaces ou tirets).')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <label for="prenom">Prénom :</label>
-      <input 
-        type="text"
-        id="prenom"
-        name="prenom"
-        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
-        title="Le prénom ne doit contenir que des lettres, espaces ou tirets."
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir un prénom valide (uniquement des lettres, espaces ou tirets).')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <label for="email">Email :</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir une adresse email valide (exemple@domaine.fr).')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <label for="telephone">Téléphone :</label>
-      <input
-        type="tel"
-        id="telephone"
-        name="telephone"
-        pattern="[0-9]+"
-        title="Le téléphone ne doit contenir que des chiffres (ex : 0612345678)."
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir uniquement des chiffres pour le téléphone (ex : 0612345678).')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <label for="epaisseur">Épaisseur de la dalle (en cm) :</label>
-      <input
-        type="number"
-        id="epaisseur"
-        name="epaisseur"
-        min="15"
-        max="35"
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir une épaisseur entre 15 et 35 cm.')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <label for="surface">Surface de la dalle (en m²) :</label>
-      <input
-        type="number"
-        id="surface"
-        name="surface"
-        min="1"
-        required
-        oninvalid="this.setCustomValidity('Veuillez saisir une surface en m² (minimum 1).')"
-        oninput="this.setCustomValidity('')"
-      >
-
-      <div class="button-container">
-        <button type="button" onclick="calculerDevis()">Obtenir le devis</button>
-      </div>
-    </form>
-
-    <div id="devis">
-      <div class="devis-header">
-        <h2>Devis pour dalle en béton</h2>
-        <div class="info-devis">
-          <p><strong>N° Devis :</strong> <span id="infoNumeroDevis"></span></p>
-          <p><strong>Date :</strong> <span id="infoDateDevis"></span></p>
-          <p><strong>Validité :</strong> <span id="infoValidite"></span></p>
+                <div class="button-container">
+                    <button onclick="window.print()">Imprimer le devis</button>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="info-client">
-        <h3>Informations du client</h3>
-        <p><strong>Nom :</strong> <span id="infoNom"></span></p>
-        <p><strong>Prénom :</strong> <span id="infoPrenom"></span></p>
-        <p><strong>Email :</strong> <span id="infoEmail"></span></p>
-        <p><strong>Téléphone :</strong> <span id="infoTelephone"></span></p>
-      </div>
+        <script>
+            function calculerDevis() {
+                const form = document.getElementById("formDevis");
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
 
-      <div class="info-calcul">
-        <h3>Détails du calcul</h3>
-        <p><strong>Épaisseur (cm) :</strong> <span id="infoEpaisseur"></span></p>
-        <p><strong>Surface (m²) :</strong> <span id="infoSurface"></span></p>
+                const nom = document.getElementById("nom").value;
+                const prenom = document.getElementById("prenom").value;
+                const email = document.getElementById("email").value;
+                const telephone = document.getElementById("telephone").value;
+                const epaisseur = parseFloat(document.getElementById("epaisseur").value);
+                const surface = parseFloat(document.getElementById("surface").value);
 
-        <table>
-          <tr>
-            <th>Volume nécessaire (m³)</th>
-            <th>Volume final livré (m³)</th>
-            <th>Quantité de ciment (tonnes)</th>
-            <th>Nombre de camions (9m³)</th>
-          </tr>
-          <tr>
-            <td id="infoVolumeCalcule"></td>
-            <td id="infoVolumeFinal"></td>
-            <td id="infoCiment"></td>
-            <td id="infoCamions"></td>
-          </tr>
-        </table>
+                const numeroDevis = "2025-" + Math.floor(10000 + Math.random() * 90000);
 
-        <div class="tarifs">
-          <h4>Récapitulatif des tarifs</h4>
-          <p><strong>Prix du béton HT :</strong> <span id="infoPrixBetonHT"></span> €</p>
-          <p><strong>Prix du transport HT :</strong> <span id="infoPrixTransportHT"></span> €</p>
-          <p><strong>Sous-total HT :</strong> <span id="infoTotalHT"></span> €</p>
-          <p><strong>TVA (20%) :</strong> <span id="infoTVA"></span> €</p>
-          <p><strong>Total TTC :</strong> <span id="infoTotalTTC"></span> €</p>
-        </div>
-      </div>
+                const aujourdHui = new Date();
+                const dateDevis = aujourdHui.toLocaleDateString("fr-FR");
+                const dateValidite = new Date(aujourdHui.getTime() + 30 * 24 * 60 * 60 * 1000);
+                const dateValiditeStr = dateValidite.toLocaleDateString("fr-FR");
 
-      <div class="conditions">
-        <p><strong>Conditions générales :</strong></p>
-        <ul>
-          <li>Le présent devis est valable 30 jours à compter de la date d’émission.</li>
-          <li>Le prix du béton est susceptible d’être révisé en cas de fluctuation importante du coût des matières premières.</li>
-          <li>Le transport est facturé à la livraison, sans possibilité de livraison partielle (camion complet de 9m³).</li>
-          <li>Pour toute question ou modification, merci de nous contacter.</li>
-        </ul>
-      </div>
+                let volumeCalcule = (epaisseur / 100) * surface;
+                volumeCalcule = Math.round(volumeCalcule * 100) / 100;
 
-      <div class="button-container">
-        <button onclick="window.print()">Imprimer le devis</button>
-      </div>
-    </div>
-  </div>
+                const nbCamions = Math.ceil(volumeCalcule / 9);
 
-  <script>
-    function calculerDevis() {
-      const form = document.getElementById("formDevis");
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+                const volumeFinal = nbCamions * 9;
 
-      const nom = document.getElementById("nom").value;
-      const prenom = document.getElementById("prenom").value;
-      const email = document.getElementById("email").value;
-      const telephone = document.getElementById("telephone").value;
-      const epaisseur = parseFloat(document.getElementById("epaisseur").value);
-      const surface = parseFloat(document.getElementById("surface").value);
+                let cimentTonnes = 0.35 * volumeFinal;
+                cimentTonnes = Math.round(cimentTonnes * 100) / 100;
 
-      const numeroDevis = "2025-" + Math.floor(10000 + Math.random() * 90000);
+                const prixBetonHTm3 = 91;
+                const prixTransportHT = 140;
 
-      const aujourdHui = new Date();
-      const dateDevis = aujourdHui.toLocaleDateString("fr-FR");
-      const dateValidite = new Date(aujourdHui.getTime() + 30*24*60*60*1000);
-      const dateValiditeStr = dateValidite.toLocaleDateString("fr-FR");
+                const totalBetonHT = volumeFinal * prixBetonHTm3;
+                const totalTransportHT = nbCamions * prixTransportHT;
+                const totalHT = totalBetonHT + totalTransportHT;
+                const tva = totalHT * 0.20;
+                const totalTTC = totalHT + tva;
 
-      let volumeCalcule = (epaisseur / 100) * surface;
-      volumeCalcule = Math.round(volumeCalcule * 100) / 100;
+                document.getElementById("infoNumeroDevis").textContent = numeroDevis;
+                document.getElementById("infoDateDevis").textContent = dateDevis;
+                document.getElementById("infoValidite").textContent = dateValiditeStr;
 
-      const nbCamions = Math.ceil(volumeCalcule / 9);
+                document.getElementById("infoNom").textContent = nom;
+                document.getElementById("infoPrenom").textContent = prenom;
+                document.getElementById("infoEmail").textContent = email;
+                document.getElementById("infoTelephone").textContent = telephone;
 
-      const volumeFinal = nbCamions * 9;
+                document.getElementById("infoEpaisseur").textContent = epaisseur;
+                document.getElementById("infoSurface").textContent = surface;
 
-      let cimentTonnes = 0.35 * volumeFinal;
-      cimentTonnes = Math.round(cimentTonnes * 100) / 100;
+                document.getElementById("infoVolumeCalcule").textContent = volumeCalcule.toFixed(2);
+                document.getElementById("infoVolumeFinal").textContent = volumeFinal.toFixed(2);
+                document.getElementById("infoCiment").textContent = cimentTonnes.toFixed(2);
+                document.getElementById("infoCamions").textContent = nbCamions;
 
-      const prixBetonHTm3 = 91;     
-      const prixTransportHT = 140;  
+                document.getElementById("infoPrixBetonHT").textContent = totalBetonHT.toFixed(2);
+                document.getElementById("infoPrixTransportHT").textContent = totalTransportHT.toFixed(2);
+                document.getElementById("infoTotalHT").textContent = totalHT.toFixed(2);
+                document.getElementById("infoTVA").textContent = tva.toFixed(2);
+                document.getElementById("infoTotalTTC").textContent = totalTTC.toFixed(2);
 
-      const totalBetonHT = volumeFinal * prixBetonHTm3;
-      const totalTransportHT = nbCamions * prixTransportHT;
-      const totalHT = totalBetonHT + totalTransportHT;
-      const tva = totalHT * 0.20;
-      const totalTTC = totalHT + tva;
-
-      document.getElementById("infoNumeroDevis").textContent = numeroDevis;
-      document.getElementById("infoDateDevis").textContent = dateDevis;
-      document.getElementById("infoValidite").textContent = dateValiditeStr;
-
-      document.getElementById("infoNom").textContent = nom;
-      document.getElementById("infoPrenom").textContent = prenom;
-      document.getElementById("infoEmail").textContent = email;
-      document.getElementById("infoTelephone").textContent = telephone;
-
-      document.getElementById("infoEpaisseur").textContent = epaisseur;
-      document.getElementById("infoSurface").textContent = surface;
-
-      document.getElementById("infoVolumeCalcule").textContent = volumeCalcule.toFixed(2);
-      document.getElementById("infoVolumeFinal").textContent = volumeFinal.toFixed(2);
-      document.getElementById("infoCiment").textContent = cimentTonnes.toFixed(2);
-      document.getElementById("infoCamions").textContent = nbCamions;
-
-      document.getElementById("infoPrixBetonHT").textContent = totalBetonHT.toFixed(2);
-      document.getElementById("infoPrixTransportHT").textContent = totalTransportHT.toFixed(2);
-      document.getElementById("infoTotalHT").textContent = totalHT.toFixed(2);
-      document.getElementById("infoTVA").textContent = tva.toFixed(2);
-      document.getElementById("infoTotalTTC").textContent = totalTTC.toFixed(2);
-
-      document.getElementById("devis").style.display = "block";
-    }
-  </script>
-</body>
+                document.getElementById("devis").style.display = "block";
+            }
+        </script>
+    </body>
 </html>
 
 
