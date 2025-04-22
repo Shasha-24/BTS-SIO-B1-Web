@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Depot TP9</title>
+    <link rel="stylesheet" href="../Style/TP9_style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenue dans mon TP9 !</h1>
+    </header>
+
+    <div class="button-container">
+        <button onclick="window.location.href = '../../index.html'">Retour à l'accueil</button>
+    </div>
+
+    <h2>Exercice 1 - Définitions au survol</h2>
+
+    <p>
+        Les <span class="mot" data-mot="chat">chats</span> sont des êtres aussi adorables que despotiques. Leur <span class="mot" data-mot="ronron">ronron</span> neutralise toute colère humaine.
+        En cas de pénurie de <span class="mot" data-mot="croquettes">croquettes</span>, ils activent l’alerte par <span class="mot" data-mot="miaulement">miaulements</span> stridents, souvent à 4h du matin.
+        Après leur festin, retour à la <span class="mot" data-mot="sieste">sieste</span> sacrée, bien souvent sur ton clavier. Gare aussi à l'attaque surprise du <span class="mot" data-mot="pied">pied</span> sous la couette.
+        Et quand ils te fixent intensément… c’est que tu es déjà perdu dans leur empire.
+    </p>
+
+    <div id="popup" class="popup"></div>
+
+    <script>
+        const defs = new Map([
+            ["chat", { titre: "Chat", texte: "Petit félin domestique, expert en manipulation affective.", image: "../asset/Chat_photo.png" }], 
+            ["ronron", { titre: "Ronron", texte: "Bruit de moteur diesel émis par un chat heureux ou manipulateur." }],
+            ["croquettes", { titre: "Croquettes", texte: "Unité monétaire féline. 1 croquette = 1 faveur temporaire." }],
+            ["miaulement", { titre: "Miaulement", texte: "Langage universel utilisé pour obtenir ce qu’ils veulent. Spoiler : tout." }],
+            ["sieste", { titre: "Sieste", texte: "Activité principale. Se pratique sur les livres, les claviers ou ton visage." }],
+            ["pied", { titre: "Pied", texte: "Cible privilégiée la nuit, surtout s'il bouge sous la couette." }]
+        ]);
+
+        const popup = document.getElementById("popup");
+
+        document.querySelectorAll(".mot").forEach(mot => {
+            mot.addEventListener("mouseover", (e) => {
+                const motCle = e.target.dataset.mot;
+                const def = defs.get(motCle);
+                if (def) {
+                    popup.innerHTML = `
+                        <strong>${def.titre}</strong><br>
+                        ${def.texte}<br>
+                        ${def.image ? `<img src="${def.image}" alt="${def.titre}" style="width: 100px; height: auto;"/>` : ''}
+                    `;
+                    popup.style.display = "block";
+                    popup.style.left = (e.pageX + 10) + "px";
+                    popup.style.top = (e.pageY + 10) + "px";
+                }
+            });
+
+            mot.addEventListener("mouseout", () => {
+                popup.style.display = "none";
+            });
+        });
+    </script>
+
+    
+     <h2>Inscription à la journée porte ouverte</h2>
+
+<form id="form-visite">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" placeholder="Ex : DURAND" pattern="[A-Za-zÀ-ÿéèêô]+([ -][A-Za-zÀ-ÿéèêô]+)*" required>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" placeholder="Ex : Léa" pattern="[A-Za-zÀ-ÿéèêô]+([ -][A-Za-zÀ-ÿéèêô]+)*" required>
+
+    <label for="bac">Bac suivi :</label>
+    <select id="bac" name="bac" required>
+        <option value="" disabled selected>-- Sélectionnez --</option>
+        <option value="Bac pro">Bac pro</option>
+        <option value="STI">STI</option>
+        <option value="STMG">STMG</option>
+        <option value="Général">Général</option>
+    </select><br><br>
+
+    <button type="submit">Valider</button>
+</form>
+
+<h3>Liste des Inscrits :</h3>
+<table id="table-inscrits" border="1">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Bac Suivi</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
+    <script>
+        const form = document.getElementById('form-visite');
+const tableBody = document.querySelector('#table-inscrits tbody');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nom = document.getElementById('nom').value.trim().toUpperCase();
+    const prenom = document.getElementById('prenom').value.trim();
+    const bac = document.getElementById('bac').value;
+
+    if (nom && prenom && bac) {
+        const newRow = tableBody.insertRow();
+
+        newRow.innerHTML = `
+            <td>${nom}</td>
+            <td>${prenom}</td>
+            <td>${bac}</td>
+            <td><button class="supprimer-btn">Supprimer</button></td>
+        `;
+
+        form.reset();
+    }
+});
+
+// Suppression d’une ligne quand on clique sur un bouton "Supprimer"
+tableBody.addEventListener('click', function(e) {
+    if (e.target.classList.contains('supprimer-btn')) {
+        const ligne = e.target.closest('tr');
+        ligne.remove();
+    }
+});
+
+    </script>
+
+</body>
+</html>
