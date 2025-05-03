@@ -15,6 +15,8 @@
         <button onclick="window.location.href = '../../index.html'">Retour à l'accueil</button>
     </div>
 
+<section>    
+    
     <h2>Exercice 1 - Définitions au survol</h2>
 
     <p>
@@ -59,7 +61,9 @@
             });
         });
     </script>
-
+</section>
+    
+<section>
     
      <h2>Inscription à la journée porte ouverte</h2>
 
@@ -82,6 +86,10 @@
     <button type="submit">Valider</button>
 </form>
 
+</section>     
+     
+<section>     
+     
 <h3>Liste des Inscrits :</h3>
 <table id="table-inscrits" border="1">
     <thead>
@@ -130,6 +138,120 @@ tableBody.addEventListener('click', function(e) {
 });
 
     </script>
+ </section>
+    
+    
+<section>
+    <h2>Exercice 3 - Compte à rebours avant les JO d’hiver 2026</h2>
+
+<div id="countdown-container">
+    <div class="event-name">Jeux Olympiques d’Hiver Milan-Cortina 2026</div>
+    <div id="countdown">
+        <div><span id="days">000</span><br>Jours</div>
+        <div><span id="hours">00</span><br>Heures</div>
+        <div><span id="minutes">00</span><br>Minutes</div>
+        <div><span id="seconds">00</span><br>Secondes</div>
+    </div>
+</div>
+
+<script>
+    
+    function updateCountdown() {
+    const eventDate = new Date("2026-02-06T20:00:00");
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        document.getElementById("countdown-container").innerHTML = "<div class='event-name'>C'est parti ! 🇮🇹❄️🎿</div>";
+        clearInterval(countdownInterval);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").textContent = days.toString().padStart(3, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+}
+
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
+
+</script>
+</section>
+
+
+<section>
+<h2>Exercice 4 - Calendrier dynamique</h2>
+
+<label for="mois">Mois :</label>
+<select id="mois">
+    <option value="0">Janvier</option>
+    <option value="1">Février</option>
+    <option value="2">Mars</option>
+    <option value="3">Avril</option>
+    <option value="4">Mai</option>
+    <option value="5">Juin</option>
+    <option value="6">Juillet</option>
+    <option value="7">Août</option>
+    <option value="8">Septembre</option>
+    <option value="9">Octobre</option>
+    <option value="10">Novembre</option>
+    <option value="11">Décembre</option>
+</select>
+
+<label for="annee">Année :</label>
+<input type="number" id="annee" min="1900" max="2100" value="2025">
+
+<button id="generer">Générer calendrier</button>
+
+<table id="calendrier" border="1" style="margin-top: 20px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            
+            <th>Lun</th>
+            <th>Mar</th>
+            <th>Mer</th>
+            <th>Jeu</th>
+            <th>Ven</th>
+            <th>Sam</th>
+            <th>Dim</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    
+    document.getElementById('generer').addEventListener('click', function() {
+    const mois = parseInt(document.getElementById('mois').value);
+    const annee = parseInt(document.getElementById('annee').value);
+    const tbody = document.querySelector('#calendrier tbody');
+    tbody.innerHTML = '';
+
+    const premierJour = new Date(annee, mois, 1).getDay();
+    const nbJours = new Date(annee, mois + 1, 0).getDate();
+
+    let ligne = document.createElement('tr');
+    for (let i = 0; i < premierJour; i++) {
+        ligne.innerHTML += '<td></td>';
+    }
+
+    for (let jour = 1; jour <= nbJours; jour++) {
+        ligne.innerHTML += `<td>${jour}</td>`;
+        if ((premierJour + jour) % 7 === 0 || jour === nbJours) {
+            tbody.appendChild(ligne);
+            ligne = document.createElement('tr');
+        }
+    }
+});
+
+</script>
+</section>
 
 </body>
 </html>
