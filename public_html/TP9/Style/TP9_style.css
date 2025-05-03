@@ -12,6 +12,14 @@ header {
   
 }
 
+section {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .button-container {
     margin-top: 20px;
     
@@ -135,5 +143,84 @@ tr:hover {
 .supprimer-btn:hover {
     background-color: darkred;
 }
+#countdown-container {
+    background: linear-gradient(135deg, #d2b48c, #a0522d);
+    color: #fff8e7;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.event-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#countdown {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    flex-wrap: wrap;
+}
+
+#countdown div {
+    background: rgba(255, 248, 231, 0.2);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+#countdown div:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+#countdown span {
+    font-size: 2.5em;
+    font-weight: bold;
+    display: block;
+}
+
+#mois, #annee, #generer {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: #d2b48c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#generer:hover {
+    background-color: #a0522d;
+}
+
+#calendrier th, #calendrier td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+#calendrier td:hover {
+    background-color: #d2b48c;
+    color: white;
+    cursor: pointer;
+}
+
+
 
 
